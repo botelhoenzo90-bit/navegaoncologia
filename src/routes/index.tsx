@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { MessageSquare, Menu, X, ChevronRight, CheckCircle2, Heart, Shield, Calendar, Activity, Users, ArrowRight, Star, Plus } from "lucide-react";
+import { MessageSquare, Menu, X, ChevronRight, CheckCircle2, Heart, Shield, Calendar, Activity, Users, ArrowRight, Star, Plus, Stethoscope, Search, Layers, FileText, Layout } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import {
@@ -67,7 +67,7 @@ function LandingPage() {
 
       <main>
         {/* Hero Section */}
-        <section className="relative overflow-hidden pt-20 pb-20 lg:pt-32 lg:pb-32">
+        <section className="relative overflow-hidden pt-8 pb-20 lg:pt-12 lg:pb-32">
           <div className="absolute top-0 right-0 -z-10 h-[600px] w-[600px] rounded-full bg-primary/5 blur-3xl" />
           <div className="absolute -bottom-20 -left-20 -z-10 h-[400px] w-[400px] rounded-full bg-accent/10 blur-3xl" />
           
@@ -114,13 +114,28 @@ function LandingPage() {
                     Conheça nossa solução
                   </Button>
                 </div>
-                <div className="mt-8 flex flex-col items-center gap-4 text-sm text-muted-foreground">
-                  <div className="flex -space-x-2">
-                    {[1, 2, 3].map((i) => (
-                      <div key={i} className="h-10 w-10 rounded-full border-2 border-white bg-slate-200" />
+                <div className="mt-12 flex flex-col items-center gap-6">
+                  <div className="flex -space-x-4">
+                    {[
+                      "https://images.unsplash.com/photo-1551601651-2a8555f1a136?auto=format&fit=crop&q=80&w=150",
+                      "https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&q=80&w=150",
+                      "https://images.unsplash.com/photo-1559839734-2b71f1536b8e?auto=format&fit=crop&q=80&w=150",
+                      "https://images.unsplash.com/photo-1582750433449-648ed127bb54?auto=format&fit=crop&q=80&w=150"
+                    ].map((url, i) => (
+                      <motion.div 
+                        key={i} 
+                        initial={{ opacity: 0, scale: 0.5 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ delay: i * 0.1 }}
+                        className="h-16 w-16 rounded-full border-4 border-white shadow-md overflow-hidden bg-slate-200"
+                      >
+                        <img src={url} alt={`Paciente ${i+1}`} className="h-full w-full object-cover" />
+                      </motion.div>
                     ))}
                   </div>
-                  <span>Join 500+ families already navigating together</span>
+                  <p className="text-base font-medium text-slate-700">
+                    Mais de <span className="text-primary font-bold">500+ famílias</span> cuidada pela nossa plataforma no Brasil
+                  </p>
                 </div>
               </motion.div>
 
@@ -138,17 +153,7 @@ function LandingPage() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent" />
                 </div>
-                <div className="absolute -right-4 -bottom-4 z-20 w-64 rounded-2xl bg-white p-6 shadow-xl shadow-black/5 ring-1 ring-black/5 hidden md:block">
-                  <div className="flex items-center gap-4 text-left">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-full bg-accent/20 text-accent shrink-0">
-                      <Heart className="h-6 w-6" />
-                    </div>
-                    <div>
-                      <p className="text-sm font-bold">Cuidado 24/7</p>
-                      <p className="text-xs text-muted-foreground">Sempre ao seu lado</p>
-                    </div>
-                  </div>
-                </div>
+                {/* Removido o card "Cuidado 24/7 Sempre ao seu lado" conforme pedido */}
               </motion.div>
             </div>
           </div>
@@ -158,35 +163,37 @@ function LandingPage() {
         <section id="sobre" className="bg-slate-50 py-20 lg:py-32">
           <div className="container mx-auto px-4 lg:px-8">
             <div className="mx-auto max-w-3xl text-center">
-              <h2 className="text-3xl font-bold tracking-tight text-foreground md:text-4xl">Sobre a Navega Onco</h2>
-              <p className="mt-6 text-lg leading-relaxed text-muted-foreground">
-                A Navega Onco nasceu para garantir que pacientes e familiares tenham orientação durante todas as etapas do tratamento, reduzindo dúvidas, barreiras e inseguranças.
+              <h2 className="text-4xl font-bold tracking-tight text-foreground md:text-5xl">Quem Somos Nós</h2>
+              <div className="mt-4 h-1.5 w-24 bg-primary mx-auto rounded-full" />
+              <p className="mt-8 text-lg leading-relaxed text-muted-foreground md:text-xl">
+                A Navega Onco nasceu para garantir que pacientes e familiares tenham orientação durante todas as etapas do tratamento, reduzindo dúvidas, barreiras e inseguranças através de uma abordagem humanizada e tecnológica.
               </p>
             </div>
 
             <div className="mt-16 grid gap-8 md:grid-cols-2 lg:grid-cols-4">
               {[
-                { title: "Acompanhamento contínuo", icon: Calendar },
-                { title: "Atendimento humanizado", icon: Heart },
-                { title: "Segurança nas decisões", icon: Shield },
-                { title: "Organização da jornada", icon: Activity },
+                { title: "Acompanhamento contínuo", icon: Calendar, desc: "Monitoramento constante em todas as fases da sua jornada." },
+                { title: "Atendimento humanizado", icon: Heart, desc: "Cuidado centrado no paciente com empatia e acolhimento." },
+                { title: "Segurança nas decisões", icon: Shield, desc: "Informações confiáveis para você e sua família decidirem com clareza." },
+                { title: "Organização da jornada", icon: Activity, desc: "Gestão completa de consultas, exames e etapas do tratamento." },
               ].map((item, idx) => (
                 <motion.div
                   key={idx}
                   {...fadeInUp}
                   transition={{ delay: idx * 0.1 }}
-                  className="group rounded-3xl bg-white p-8 shadow-sm ring-1 ring-slate-100 transition-all hover:shadow-md flex flex-col items-center text-center"
+                  className="group rounded-3xl bg-white p-8 shadow-md ring-1 ring-slate-100 transition-all hover:shadow-xl flex flex-col items-center text-center"
                 >
-                  <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/10 text-primary transition-transform group-hover:scale-110">
-                    <item.icon className="h-7 w-7" />
+                  <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-2xl bg-primary/10 text-primary transition-transform group-hover:scale-110 shadow-inner">
+                    <item.icon className="h-8 w-8" />
                   </div>
-                  <h3 className="text-xl font-bold text-foreground mb-4">{item.title}</h3>
+                  <h3 className="text-xl font-bold text-foreground mb-3">{item.title}</h3>
+                  <p className="text-muted-foreground mb-6 text-sm">{item.desc}</p>
                   <Button 
-                    variant="link" 
-                    className="text-primary p-0 h-auto font-bold"
+                    variant="outline" 
+                    className="rounded-full border-primary/20 text-primary font-bold hover:bg-primary hover:text-white transition-colors w-full"
                     onClick={() => window.open(whatsappLink, "_blank")}
                   >
-                    Saiba mais <ArrowRight className="ml-2 h-4 w-4" />
+                    Falar agora
                   </Button>
                 </motion.div>
               ))}
@@ -194,32 +201,39 @@ function LandingPage() {
           </div>
         </section>
 
-        {/* Problemas Section */}
-        <section className="py-20 lg:py-32">
+        {/* Problemas Section - Refatorada */}
+        <section className="py-24 lg:py-36 bg-white relative overflow-hidden">
+          <div className="absolute top-0 right-0 w-1/3 h-full bg-slate-50/50 -z-10 skew-x-12 transform translate-x-20" />
           <div className="container mx-auto px-4 lg:px-8">
-            <div className="text-center">
-              <h2 className="text-3xl font-bold text-foreground">O que resolvemos</h2>
-              <p className="mt-4 text-muted-foreground">Superando os desafios do tratamento oncológico</p>
+            <div className="text-center max-w-3xl mx-auto mb-20">
+              <Badge className="bg-destructive/10 text-destructive border-destructive/20 mb-4 px-4 py-1">Desafios Comuns</Badge>
+              <h2 className="text-4xl font-extrabold text-foreground md:text-5xl leading-tight">O Que Resolvemos</h2>
+              <p className="mt-6 text-xl text-muted-foreground">
+                Entendemos as dores da jornada oncológica e criamos soluções para superar cada obstáculo no seu caminho.
+              </p>
             </div>
 
-            <div className="mt-16 grid gap-6 md:grid-cols-3 lg:grid-cols-5">
+            <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
               {[
-                "Falta de orientação",
-                "Ansiedade pós-diagnóstico",
-                "Dificuldade de acesso",
-                "Informações desencontradas",
-                "Falta de acompanhamento"
-              ].map((prob, idx) => (
+                { title: "Falta de orientação", icon: Search, desc: "Eliminamos a sensação de estar perdido no sistema de saúde." },
+                { title: "Ansiedade pós-diagnóstico", icon: Heart, desc: "Apoio emocional e técnico imediato nos momentos mais difíceis." },
+                { title: "Dificuldade de acesso", icon: Layout, desc: "Facilitamos a conexão com os serviços e profissionais necessários." },
+                { title: "Informações desencontradas", icon: FileText, desc: "Centralizamos e organizamos todos os dados do seu tratamento." },
+                { title: "Falta de acompanhamento", icon: Activity, desc: "Monitoramento contínuo, não apenas no dia da consulta." },
+                { title: "Insegurança Familiar", icon: Shield, desc: "Damos suporte e clareza para que a família saiba como ajudar." }
+              ].map((item, idx) => (
                 <motion.div
                   key={idx}
                   {...fadeInUp}
                   transition={{ delay: idx * 0.1 }}
-                  className="rounded-2xl border border-destructive/10 bg-destructive/[0.02] p-6 text-center"
+                  className="relative group rounded-[2rem] border border-slate-100 bg-white p-10 shadow-xl shadow-slate-200/40 hover:shadow-2xl hover:shadow-primary/5 transition-all duration-300 overflow-hidden"
                 >
-                  <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-white shadow-sm">
-                    <X className="h-6 w-6 text-destructive" />
+                  <div className="absolute top-0 right-0 w-24 h-24 bg-primary/5 rounded-bl-[4rem] group-hover:bg-primary/10 transition-colors" />
+                  <div className="mb-8 flex h-16 w-16 items-center justify-center rounded-2xl bg-destructive/10 text-destructive group-hover:scale-110 transition-transform shadow-inner">
+                    <item.icon className="h-8 w-8" />
                   </div>
-                  <p className="font-semibold text-foreground">{prob}</p>
+                  <h3 className="text-2xl font-bold text-foreground mb-4">{item.title}</h3>
+                  <p className="text-muted-foreground leading-relaxed text-lg">{item.desc}</p>
                 </motion.div>
               ))}
             </div>
@@ -298,27 +312,36 @@ function LandingPage() {
               <h2 className="text-3xl font-bold text-foreground md:text-4xl">Como Funciona</h2>
               <p className="mt-4 text-muted-foreground">Um processo estruturado para o seu bem-estar</p>
             </div>
-            <div className="relative">
-              <div className="absolute top-1/2 left-0 hidden h-0.5 w-full -translate-y-1/2 bg-primary/20 lg:block" />
-              <div className="grid gap-8 lg:grid-cols-5">
+            <div className="mt-16 relative">
+              <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-5 relative z-10">
                 {[
-                  { title: "Primeiro contato", desc: "Conexão inicial para entender sua necessidade." },
-                  { title: "Avaliação inicial", desc: "Análise profunda do seu histórico e momento." },
-                  { title: "Plano individualizado", desc: "Construção da sua rota de navegação." },
-                  { title: "Acompanhamento", desc: "Monitoramento contínuo e suporte 24/7." },
-                  { title: "Orientações", desc: "Suporte durante todo o tratamento." },
+                  { title: "Primeiro contato", desc: "Conexão inicial para entender sua necessidade através do WhatsApp.", icon: MessageSquare },
+                  { title: "Avaliação inicial", desc: "Análise profunda do seu histórico com nossa equipe especializada.", icon: Search },
+                  { title: "Plano individualizado", desc: "Construção da sua rota de navegação personalizada.", icon: Layers },
+                  { title: "Acompanhamento", desc: "Monitoramento contínuo e suporte humanizado 24h.", icon: Activity },
+                  { title: "Orientações", desc: "Suporte completo durante cada ciclo do tratamento.", icon: Heart },
                 ].map((step, idx) => (
                   <motion.div
                     key={idx}
                     {...fadeInUp}
                     transition={{ delay: idx * 0.1 }}
-                    className="relative flex flex-col items-center text-center"
+                    className="relative group"
                   >
-                    <div className="z-10 mb-6 flex h-12 w-12 items-center justify-center rounded-full bg-primary text-xl font-bold text-white shadow-lg shadow-primary/30">
-                      {idx + 1}
+                    <div className="flex flex-col items-center text-center">
+                      <div className="relative mb-8">
+                        <div className="h-20 w-20 rounded-3xl bg-primary flex items-center justify-center text-white shadow-xl shadow-primary/30 group-hover:scale-110 transition-transform rotate-3 group-hover:rotate-0">
+                          <step.icon className="h-10 w-10" />
+                        </div>
+                        <div className="absolute -top-3 -right-3 h-8 w-8 rounded-full bg-accent flex items-center justify-center text-white font-bold text-sm border-4 border-white">
+                          {idx + 1}
+                        </div>
+                      </div>
+                      <h3 className="text-xl font-bold mb-3">{step.title}</h3>
+                      <p className="text-muted-foreground leading-relaxed">{step.desc}</p>
                     </div>
-                    <h3 className="text-lg font-bold">{step.title}</h3>
-                    <p className="mt-2 text-sm text-muted-foreground">{step.desc}</p>
+                    {idx < 4 && (
+                      <div className="hidden lg:block absolute top-10 left-[70%] w-full h-[2px] bg-gradient-to-r from-primary/30 to-transparent -z-10" />
+                    )}
                   </motion.div>
                 ))}
               </div>
@@ -326,12 +349,16 @@ function LandingPage() {
           </div>
         </section>
 
-        {/* Serviços Premium Section */}
-        <section className="bg-slate-900 py-20 text-white lg:py-32">
-          <div className="container mx-auto px-4 lg:px-8">
-            <div className="mb-16 text-center">
-              <h2 className="text-3xl font-bold md:text-4xl">Serviços Premium</h2>
-              <p className="mt-4 text-white/60">Soluções avançadas para pacientes e instituições</p>
+        {/* Serviços Premium Section - Refatorada */}
+        <section className="bg-slate-950 py-24 text-white lg:py-36 relative overflow-hidden">
+          <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_30%_30%,rgba(124,58,237,0.1),transparent)]" />
+          <div className="container mx-auto px-4 lg:px-8 relative z-10">
+            <div className="mb-20 text-center max-w-3xl mx-auto">
+              <Badge className="bg-primary/20 text-primary border-primary/30 mb-6 px-6 py-2">Experiência Exclusiva</Badge>
+              <h2 className="text-4xl font-extrabold md:text-5xl leading-tight">Serviços Premium</h2>
+              <p className="mt-6 text-xl text-white/60">
+                A excelência no cuidado oncológico através de soluções avançadas e personalizadas para pacientes exigentes e instituições de referência.
+              </p>
             </div>
             <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
               {[
@@ -372,30 +399,31 @@ function LandingPage() {
               <h2 className="text-3xl font-bold text-foreground md:text-4xl">Para quem é a Navega Onco?</h2>
               <p className="mt-4 text-muted-foreground">Soluções completas para todo o ecossistema de saúde oncológica</p>
             </div>
-            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
               {[
-                { title: "Pacientes e Familiares", desc: "Suporte contínuo e navegação para reduzir a ansiedade e organizar a jornada." },
-                { title: "Clínicas Oncológicas", desc: "Otimização de processos e melhoria do desfecho clínico dos pacientes." },
-                { title: "Hospitais", desc: "Redução de reinternações e gestão eficiente de sintomas pós-alta." },
-                { title: "Centros de Infusão", desc: "Acompanhamento remoto entre as sessões de tratamento." },
-                { title: "Profissionais da Saúde", desc: "Dados estruturados para melhores decisões clínicas." },
+                { title: "Pacientes e Familiares", desc: "Suporte contínuo e navegação para reduzir a ansiedade e organizar a jornada.", icon: Users },
+                { title: "Clínicas Oncológicas", desc: "Otimização de processos e melhoria do desfecho clínico dos pacientes.", icon: Activity },
+                { title: "Hospitais", desc: "Redução de reinternações e gestão eficiente de sintomas pós-alta.", icon: Shield },
+                { title: "Centros de Infusão", desc: "Acompanhamento remoto entre as sessões de tratamento.", icon: Calendar },
+                { title: "Profissionais da Saúde", desc: "Dados estruturados para melhores decisões clínicas.", icon: Stethoscope },
+                { title: "Ecossistema de Saúde", desc: "Soluções completas para operadoras e gestores de saúde oncológica.", icon: Layout },
               ].map((item, idx) => (
                 <motion.div
                   key={idx}
                   {...fadeInUp}
-                  className="rounded-2xl bg-white p-8 shadow-sm transition-all hover:shadow-md flex flex-col items-center text-center"
+                  className="group rounded-[2rem] bg-white p-10 shadow-lg shadow-slate-200/50 transition-all hover:shadow-2xl hover:-translate-y-2 flex flex-col items-center text-center border border-slate-50"
                 >
-                  <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-primary/5 text-primary">
-                    <Users className="h-6 w-6" />
+                  <div className="mb-8 flex h-20 w-20 items-center justify-center rounded-3xl bg-primary/5 text-primary group-hover:bg-primary group-hover:text-white transition-all duration-300 shadow-inner">
+                    <item.icon className="h-10 w-10" />
                   </div>
-                  <h3 className="text-xl font-bold">{item.title}</h3>
-                  <p className="mt-3 text-muted-foreground mb-6">{item.desc}</p>
+                  <h3 className="text-2xl font-bold mb-4">{item.title}</h3>
+                  <p className="text-muted-foreground leading-relaxed text-lg mb-8">{item.desc}</p>
                   <Button 
                     variant="outline" 
-                    className="border-primary/20 text-primary hover:bg-primary/5 rounded-xl w-full font-bold"
+                    className="rounded-full border-primary/20 text-primary font-bold hover:bg-primary hover:text-white transition-colors w-full py-6 text-lg"
                     onClick={() => window.open(whatsappLink, "_blank")}
                   >
-                    Agendar para meu perfil
+                    Saber mais
                   </Button>
                 </motion.div>
               ))}
@@ -403,35 +431,41 @@ function LandingPage() {
           </div>
         </section>
 
-        {/* Nossa Equipe Section */}
-        <section className="py-20 lg:py-32">
+        {/* Nossa Equipe Section - Refatorada */}
+        <section className="py-24 lg:py-36 bg-white relative">
           <div className="container mx-auto px-4 lg:px-8">
-            <div className="mb-16 text-center">
-              <h2 className="text-3xl font-bold text-foreground md:text-4xl">Nossa Equipe</h2>
-              <p className="mt-4 text-muted-foreground">Especialistas dedicados ao seu cuidado</p>
+            <div className="mb-20 text-center max-w-3xl mx-auto">
+              <Badge className="bg-accent/10 text-accent border-accent/20 mb-4 px-6 py-1">Especialistas</Badge>
+              <h2 className="text-4xl font-extrabold text-foreground md:text-5xl">Corpo Clínico Especializado</h2>
+              <p className="mt-6 text-xl text-muted-foreground">
+                Conheça os profissionais dedicados que caminham ao seu lado, combinando alta tecnologia e profundo acolhimento humano.
+              </p>
             </div>
-            <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+            <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-3">
               {[
-                { name: "Dra. Ana Silva", role: "Navegadora Oncológica", desc: "Especialista em gestão de sintomas e suporte emocional." },
-                { name: "Dr. Roberto Santos", role: "Coordenação de Telemonitoramento", desc: "Expert em tecnologia aplicada ao cuidado remoto." },
-                { name: "Enf. Carla Oliveira", role: "Educação em Saúde", desc: "Focada em empoderar pacientes através do conhecimento." },
+                { name: "Dra. Ana Silva", role: "Navegadora Oncológica", desc: "Especialista em gestão de sintomas e suporte emocional com 10+ anos de experiência.", img: "https://images.unsplash.com/photo-1559839734-2b71f1536b8e?auto=format&fit=crop&q=80&w=400" },
+                { name: "Dr. Roberto Santos", role: "Coordenação Médica", desc: "Expert em tecnologia aplicada ao cuidado remoto e oncologia de precisão.", img: "https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&q=80&w=400" },
+                { name: "Enf. Carla Oliveira", role: "Educação em Saúde", desc: "Focada em empoderar pacientes através do conhecimento e protocolos digitais.", img: "https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&fit=crop&q=80&w=400" },
               ].map((member, idx) => (
                 <motion.div
                   key={idx}
                   {...fadeInUp}
-                  className="overflow-hidden rounded-3xl bg-white shadow-lg shadow-slate-200/50 flex flex-col items-center"
+                  className="group relative overflow-hidden rounded-[2.5rem] bg-slate-50 shadow-xl transition-all hover:shadow-2xl flex flex-col items-center"
                 >
-                  <div className="aspect-[4/3] w-full bg-slate-200" />
-                  <div className="p-8 text-center flex flex-col items-center">
-                    <h3 className="text-xl font-bold">{member.name}</h3>
-                    <p className="text-sm font-medium text-primary uppercase tracking-wider mb-4">{member.role}</p>
-                    <p className="mt-4 text-muted-foreground mb-6">{member.desc}</p>
+                  <div className="aspect-[4/5] w-full overflow-hidden relative">
+                    <img src={member.img} alt={member.name} className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                  </div>
+                  <div className="p-10 text-center flex flex-col items-center bg-white w-full -mt-12 relative z-10 rounded-[2.5rem] shadow-2xl">
+                    <Badge className="bg-primary/10 text-primary border-none mb-4">{member.role}</Badge>
+                    <h3 className="text-2xl font-bold mb-3">{member.name}</h3>
+                    <p className="text-muted-foreground leading-relaxed mb-8">{member.desc}</p>
                     <Button 
                       variant="outline" 
-                      className="border-primary/20 text-primary hover:bg-primary/5 rounded-xl font-bold"
+                      className="rounded-full border-primary/20 text-primary hover:bg-primary hover:text-white transition-all font-bold w-full py-6"
                       onClick={() => window.open(whatsappLink, "_blank")}
                     >
-                      Consultar com {member.name.split(' ')[0]}
+                      Agendar Consulta
                     </Button>
                   </div>
                 </motion.div>
@@ -439,119 +473,100 @@ function LandingPage() {
             </div>
           </div>
         </section>
-
-        {/* Depoimentos Section */}
-        <section className="bg-primary/5 py-20 lg:py-32">
-          <div className="container mx-auto px-4 lg:px-8">
-            <div className="mb-16 text-center">
-              <h2 className="text-3xl font-bold text-foreground md:text-4xl">Depoimentos</h2>
-              <p className="mt-4 text-muted-foreground">O que dizem sobre nossa jornada juntos</p>
+        {/* Depoimentos Section - Esteira Infinita */}
+        <section className="bg-slate-50 py-24 lg:py-36 overflow-hidden">
+          <div className="container mx-auto px-4 lg:px-8 mb-16">
+            <div className="text-center max-w-3xl mx-auto">
+              <Badge className="bg-primary/10 text-primary border-primary/20 mb-4 px-6 py-1">Depoimentos</Badge>
+              <h2 className="text-4xl font-extrabold text-foreground md:text-5xl">O Que Dizem Nossos Pacientes</h2>
+              <p className="mt-6 text-xl text-muted-foreground">
+                Histórias reais de quem transformou a jornada oncológica com o nosso apoio.
+              </p>
             </div>
-            
-            <Carousel className="mx-auto w-full max-w-4xl">
-              <CarouselContent>
-                {[
-                  { name: "Maria Oliveira", text: "A Navega Onco trouxe a paz que eu precisava. Não me senti sozinha em nenhum momento do tratamento.", stars: 5 },
-                  { name: "João Pereira", text: "O telemonitoramento foi essencial para ajustar minhas medicações rapidamente.", stars: 5 },
-                  { name: "Ana Costa", text: "Equipe maravilhosa e suporte técnico impecável.", stars: 5 },
-                ].map((dep, idx) => (
-                  <CarouselItem key={idx}>
-                    <div className="p-2">
-                      <Card className="border-none shadow-none bg-transparent">
-                        <CardContent className="flex flex-col items-center justify-center p-6 text-center">
-                          <div className="flex mb-4 gap-1">
-                            {[...Array(dep.stars)].map((_, i) => <Star key={i} className="h-5 w-5 fill-yellow-400 text-yellow-400" />)}
-                          </div>
-                          <p className="text-2xl italic text-foreground/80">"{dep.text}"</p>
-                          <div className="mt-8 flex items-center gap-4">
-                            <div className="h-12 w-12 rounded-full bg-slate-300" />
-                            <div className="text-left">
-                              <p className="font-bold">{dep.name}</p>
-                              <p className="text-sm text-muted-foreground">Paciente</p>
-                            </div>
-                          </div>
-                        </CardContent>
-                      </Card>
+          </div>
+          
+          <div className="relative flex overflow-hidden">
+            <motion.div 
+              animate={{ x: ["0%", "-50%"] }}
+              transition={{ 
+                duration: 40, 
+                repeat: Infinity, 
+                ease: "linear" 
+              }}
+              className="flex gap-8 pr-8"
+            >
+              {[...Array(2)].map((_, i) => (
+                <div key={i} className="flex gap-8">
+                  {[
+                    { name: "Maria Oliveira", text: "A Navega Onco trouxe a paz que eu precisava. Não me senti sozinha em nenhum momento do tratamento.", stars: 5, img: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=100" },
+                    { name: "João Pereira", text: "O telemonitoramento foi essencial para ajustar minhas medicações rapidamente.", stars: 5, img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=100" },
+                    { name: "Ana Costa", text: "Equipe maravilhosa e suporte técnico impecável. Super recomendo a Navega.", stars: 5, img: "https://images.unsplash.com/photo-1554151228-14d9def656e4?auto=format&fit=crop&q=80&w=100" },
+                    { name: "Carlos Melo", text: "A segurança que a plataforma nos passa durante a quimioterapia é indescritível.", stars: 5, img: "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?auto=format&fit=crop&q=80&w=100" },
+                  ].map((dep, idx) => (
+                    <div key={idx} className="w-[350px] md:w-[450px] shrink-0 rounded-[2.5rem] bg-white p-10 shadow-xl shadow-slate-200/50 border border-slate-100 flex flex-col items-center text-center">
+                      <div className="flex mb-6 gap-1">
+                        {[...Array(dep.stars)].map((_, i) => <Star key={i} className="h-6 w-6 fill-yellow-400 text-yellow-400" />)}
+                      </div>
+                      <p className="text-xl md:text-2xl italic text-foreground/80 leading-relaxed mb-10">"{dep.text}"</p>
+                      <div className="flex items-center gap-4 mt-auto">
+                        <img src={dep.img} alt={dep.name} className="h-16 w-16 rounded-full border-4 border-primary/10 object-cover" />
+                        <div className="text-left">
+                          <p className="font-bold text-lg">{dep.name}</p>
+                          <Badge variant="secondary" className="text-xs">Paciente</Badge>
+                        </div>
+                      </div>
                     </div>
-                  </CarouselItem>
-                ))}
-              </CarouselContent>
-              <div className="flex justify-center mt-8 gap-4">
-                <CarouselPrevious className="static translate-y-0" />
-                <CarouselNext className="static translate-y-0" />
-              </div>
-            </Carousel>
+                  ))}
+                </div>
+              ))}
+            </motion.div>
           </div>
         </section>
 
-        {/* Blog Section */}
-        <section id="blog" className="py-20 lg:py-32">
+        {/* Patrocinadores Section (Substituindo Blog/Conteúdo) */}
+        <section className="py-24 bg-white border-y border-slate-100">
           <div className="container mx-auto px-4 lg:px-8">
-            <div className="mb-16 flex flex-col items-end justify-between gap-6 md:flex-row md:items-center">
-              <div>
-                <h2 className="text-3xl font-bold text-foreground md:text-4xl">Conteúdo & Educação</h2>
-                <p className="mt-4 text-muted-foreground">Informações de qualidade para sua jornada</p>
-              </div>
-              <Button variant="ghost" className="text-primary hover:text-primary/80">
-                Ver todos os artigos <ArrowRight className="ml-2 h-4 w-4" />
-              </Button>
+            <div className="mb-12 text-center">
+              <p className="text-sm font-bold text-muted-foreground uppercase tracking-[0.2em]">Instituições e Parceiros que Confiam</p>
             </div>
-            <div className="grid gap-8 md:grid-cols-3">
-              {[
-                { title: "Cuidados durante o tratamento", category: "Educação" },
-                { title: "Direitos dos pacientes oncológicos", category: "Legislação" },
-                { title: "Qualidade de vida e nutrição", category: "Bem-estar" },
-              ].map((post, idx) => (
-                <motion.div
-                  key={idx}
-                  {...fadeInUp}
-                  className="group cursor-pointer overflow-hidden rounded-2xl bg-white transition-all hover:-translate-y-2 flex flex-col items-center text-center shadow-sm hover:shadow-md"
-                >
-                  <div className="aspect-video w-full bg-slate-100" />
-                  <div className="p-6 flex flex-col items-center">
-                    <Badge variant="secondary" className="mb-3">{post.category}</Badge>
-                    <h3 className="text-xl font-bold transition-colors group-hover:text-primary">{post.title}</h3>
-                    <p className="mt-3 text-sm text-muted-foreground mb-6">Leia mais sobre como gerenciar sua saúde e bem-estar...</p>
-                    <Button 
-                      variant="link" 
-                      className="text-primary p-0 h-auto font-bold"
-                      onClick={() => window.open(whatsappLink, "_blank")}
-                    >
-                      Ler artigo no WhatsApp <ArrowRight className="ml-2 h-4 w-4" />
-                    </Button>
-                  </div>
-                </motion.div>
+            <div className="flex flex-wrap justify-center items-center gap-12 md:gap-24 opacity-50 grayscale hover:grayscale-0 transition-all">
+              {/* Placeholder Logos para Patrocinadores */}
+              {[1, 2, 3, 4, 5].map((i) => (
+                <div key={i} className="h-12 w-auto flex items-center justify-center font-bold text-2xl text-slate-400">
+                  PARCEIRO {i}
+                </div>
               ))}
             </div>
           </div>
         </section>
 
-        {/* FAQ Section */}
-        <section id="faq" className="py-20 lg:py-32">
+        {/* FAQ Section - Refatorada */}
+        <section id="faq" className="py-24 lg:py-36 bg-slate-50">
           <div className="container mx-auto max-w-4xl px-4 lg:px-8">
-            <div className="mb-16 text-center">
-              <h2 className="text-3xl font-bold text-foreground md:text-4xl">Perguntas Frequentes</h2>
+            <div className="mb-20 text-center">
+              <Badge className="bg-primary/10 text-primary border-none mb-4 px-6 py-1">Dúvidas</Badge>
+              <h2 className="text-4xl font-extrabold text-foreground md:text-5xl">Perguntas Frequentes</h2>
+              <p className="mt-4 text-xl text-muted-foreground">Tudo o que você precisa saber sobre o nosso acompanhamento.</p>
             </div>
-            <Accordion type="single" collapsible className="w-full">
+            <Accordion type="single" collapsible className="w-full space-y-4">
               {[
                 { q: "Como funciona o acompanhamento?", a: "Nossa equipe utiliza tecnologia de ponta para monitorar seus sintomas em tempo real e fornecer orientações personalizadas através da nossa plataforma e contato direto." },
                 { q: "Preciso sair de casa para ser atendido?", a: "Não. A Navega Onco é focada em saúde digital, oferecendo suporte remoto de alta qualidade que complementa o seu tratamento presencial." },
                 { q: "A Navega Onco substitui o médico?", a: "De forma alguma. Somos um serviço de suporte e navegação que trabalha em conjunto com sua equipe médica para otimizar os resultados e sua qualidade de vida." },
                 { q: "Quem pode utilizar o serviço?", a: "Pacientes oncológicos em qualquer estágio do tratamento, seus familiares, além de clínicas e hospitais que buscam melhorar o desfecho clínico." },
               ].map((item, idx) => (
-                <AccordionItem key={idx} value={`item-${idx}`} className="mb-4 border-b-0 rounded-2xl bg-slate-50 px-6">
-                  <AccordionTrigger className="text-center justify-center text-lg font-semibold hover:no-underline [&[data-state=open]>svg]:rotate-180">
+                <AccordionItem key={idx} value={`item-${idx}`} className="border-none rounded-3xl bg-white px-8 shadow-sm hover:shadow-md transition-shadow">
+                  <AccordionTrigger className="text-left text-xl font-bold py-8 hover:no-underline [&[data-state=open]>svg]:rotate-180">
                     {item.q}
                   </AccordionTrigger>
-                  <AccordionContent className="text-muted-foreground text-center flex flex-col items-center">
-                    <p className="mb-4">{item.a}</p>
+                  <AccordionContent className="text-muted-foreground text-lg leading-relaxed pb-8">
+                    <p className="mb-6">{item.a}</p>
                     <Button 
                       variant="outline" 
-                      size="sm"
-                      className="border-primary/20 text-primary hover:bg-primary/5 rounded-lg font-bold"
+                      className="rounded-full border-primary/20 text-primary font-bold hover:bg-primary/5 px-8"
                       onClick={() => window.open(whatsappLink, "_blank")}
                     >
-                      Ainda tenho dúvida
+                      Falar com especialista <ArrowRight className="ml-2 h-4 w-4" />
                     </Button>
                   </AccordionContent>
                 </AccordionItem>
