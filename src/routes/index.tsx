@@ -312,27 +312,36 @@ function LandingPage() {
               <h2 className="text-3xl font-bold text-foreground md:text-4xl">Como Funciona</h2>
               <p className="mt-4 text-muted-foreground">Um processo estruturado para o seu bem-estar</p>
             </div>
-            <div className="relative">
-              <div className="absolute top-1/2 left-0 hidden h-0.5 w-full -translate-y-1/2 bg-primary/20 lg:block" />
-              <div className="grid gap-8 lg:grid-cols-5">
+            <div className="mt-16 relative">
+              <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-5 relative z-10">
                 {[
-                  { title: "Primeiro contato", desc: "Conexão inicial para entender sua necessidade." },
-                  { title: "Avaliação inicial", desc: "Análise profunda do seu histórico e momento." },
-                  { title: "Plano individualizado", desc: "Construção da sua rota de navegação." },
-                  { title: "Acompanhamento", desc: "Monitoramento contínuo e suporte 24/7." },
-                  { title: "Orientações", desc: "Suporte durante todo o tratamento." },
+                  { title: "Primeiro contato", desc: "Conexão inicial para entender sua necessidade através do WhatsApp.", icon: MessageSquare },
+                  { title: "Avaliação inicial", desc: "Análise profunda do seu histórico com nossa equipe especializada.", icon: Search },
+                  { title: "Plano individualizado", desc: "Construção da sua rota de navegação personalizada.", icon: Layers },
+                  { title: "Acompanhamento", desc: "Monitoramento contínuo e suporte humanizado 24h.", icon: Activity },
+                  { title: "Orientações", desc: "Suporte completo durante cada ciclo do tratamento.", icon: Heart },
                 ].map((step, idx) => (
                   <motion.div
                     key={idx}
                     {...fadeInUp}
                     transition={{ delay: idx * 0.1 }}
-                    className="relative flex flex-col items-center text-center"
+                    className="relative group"
                   >
-                    <div className="z-10 mb-6 flex h-12 w-12 items-center justify-center rounded-full bg-primary text-xl font-bold text-white shadow-lg shadow-primary/30">
-                      {idx + 1}
+                    <div className="flex flex-col items-center text-center">
+                      <div className="relative mb-8">
+                        <div className="h-20 w-20 rounded-3xl bg-primary flex items-center justify-center text-white shadow-xl shadow-primary/30 group-hover:scale-110 transition-transform rotate-3 group-hover:rotate-0">
+                          <step.icon className="h-10 w-10" />
+                        </div>
+                        <div className="absolute -top-3 -right-3 h-8 w-8 rounded-full bg-accent flex items-center justify-center text-white font-bold text-sm border-4 border-white">
+                          {idx + 1}
+                        </div>
+                      </div>
+                      <h3 className="text-xl font-bold mb-3">{step.title}</h3>
+                      <p className="text-muted-foreground leading-relaxed">{step.desc}</p>
                     </div>
-                    <h3 className="text-lg font-bold">{step.title}</h3>
-                    <p className="mt-2 text-sm text-muted-foreground">{step.desc}</p>
+                    {idx < 4 && (
+                      <div className="hidden lg:block absolute top-10 left-[70%] w-full h-[2px] bg-gradient-to-r from-primary/30 to-transparent -z-10" />
+                    )}
                   </motion.div>
                 ))}
               </div>
@@ -340,12 +349,16 @@ function LandingPage() {
           </div>
         </section>
 
-        {/* Serviços Premium Section */}
-        <section className="bg-slate-900 py-20 text-white lg:py-32">
-          <div className="container mx-auto px-4 lg:px-8">
-            <div className="mb-16 text-center">
-              <h2 className="text-3xl font-bold md:text-4xl">Serviços Premium</h2>
-              <p className="mt-4 text-white/60">Soluções avançadas para pacientes e instituições</p>
+        {/* Serviços Premium Section - Refatorada */}
+        <section className="bg-slate-950 py-24 text-white lg:py-36 relative overflow-hidden">
+          <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_30%_30%,rgba(124,58,237,0.1),transparent)]" />
+          <div className="container mx-auto px-4 lg:px-8 relative z-10">
+            <div className="mb-20 text-center max-w-3xl mx-auto">
+              <Badge className="bg-primary/20 text-primary border-primary/30 mb-6 px-6 py-2">Experiência Exclusiva</Badge>
+              <h2 className="text-4xl font-extrabold md:text-5xl leading-tight">Serviços Premium</h2>
+              <p className="mt-6 text-xl text-white/60">
+                A excelência no cuidado oncológico através de soluções avançadas e personalizadas para pacientes exigentes e instituições de referência.
+              </p>
             </div>
             <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
               {[
