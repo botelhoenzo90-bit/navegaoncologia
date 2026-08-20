@@ -381,13 +381,20 @@ function LandingPage() {
                 <motion.div
                   key={idx}
                   {...fadeInUp}
-                  className="rounded-2xl bg-white p-8 shadow-sm transition-all hover:shadow-md"
+                  className="rounded-2xl bg-white p-8 shadow-sm transition-all hover:shadow-md flex flex-col items-center text-center"
                 >
                   <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-primary/5 text-primary">
                     <Users className="h-6 w-6" />
                   </div>
                   <h3 className="text-xl font-bold">{item.title}</h3>
-                  <p className="mt-3 text-muted-foreground">{item.desc}</p>
+                  <p className="mt-3 text-muted-foreground mb-6">{item.desc}</p>
+                  <Button 
+                    variant="outline" 
+                    className="border-primary/20 text-primary hover:bg-primary/5 rounded-xl w-full font-bold"
+                    onClick={() => window.open(whatsappLink, "_blank")}
+                  >
+                    Agendar para meu perfil
+                  </Button>
                 </motion.div>
               ))}
             </div>
