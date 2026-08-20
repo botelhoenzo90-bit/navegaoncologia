@@ -1,3 +1,4 @@
+import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { MessageSquare, Menu, X, ChevronRight, CheckCircle2, Heart, Shield, Calendar, Activity, Users, ArrowRight, Star, Plus } from "lucide-react";
@@ -18,7 +19,11 @@ import {
 } from "@/components/ui/carousel";
 import { Badge } from "@/components/ui/badge";
 
-export default function LandingPage() {
+export const Route = createFileRoute("/")({
+  component: LandingPage,
+});
+
+function LandingPage() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
