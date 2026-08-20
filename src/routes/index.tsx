@@ -335,6 +335,146 @@ function LandingPage() {
           </div>
         </section>
 
+        {/* Para Quem é Section */}
+        <section id="para-quem" className="bg-slate-50 py-20 lg:py-32">
+          <div className="container mx-auto px-4 lg:px-8">
+            <div className="mb-16 text-center">
+              <h2 className="text-3xl font-bold text-foreground md:text-4xl">Para quem é a Navega Onco?</h2>
+              <p className="mt-4 text-muted-foreground">Soluções completas para todo o ecossistema de saúde oncológica</p>
+            </div>
+            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {[
+                { title: "Pacientes e Familiares", desc: "Suporte contínuo e navegação para reduzir a ansiedade e organizar a jornada." },
+                { title: "Clínicas Oncológicas", desc: "Otimização de processos e melhoria do desfecho clínico dos pacientes." },
+                { title: "Hospitais", desc: "Redução de reinternações e gestão eficiente de sintomas pós-alta." },
+                { title: "Centros de Infusão", desc: "Acompanhamento remoto entre as sessões de tratamento." },
+                { title: "Profissionais da Saúde", desc: "Dados estruturados para melhores decisões clínicas." },
+              ].map((item, idx) => (
+                <motion.div
+                  key={idx}
+                  {...fadeInUp}
+                  className="rounded-2xl bg-white p-8 shadow-sm transition-all hover:shadow-md"
+                >
+                  <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-primary/5 text-primary">
+                    <Users className="h-6 w-6" />
+                  </div>
+                  <h3 className="text-xl font-bold">{item.title}</h3>
+                  <p className="mt-3 text-muted-foreground">{item.desc}</p>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Nossa Equipe Section */}
+        <section className="py-20 lg:py-32">
+          <div className="container mx-auto px-4 lg:px-8">
+            <div className="mb-16 text-center">
+              <h2 className="text-3xl font-bold text-foreground md:text-4xl">Nossa Equipe</h2>
+              <p className="mt-4 text-muted-foreground">Especialistas dedicados ao seu cuidado</p>
+            </div>
+            <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+              {[
+                { name: "Dra. Ana Silva", role: "Navegadora Oncológica", desc: "Especialista em gestão de sintomas e suporte emocional." },
+                { name: "Dr. Roberto Santos", role: "Coordenação de Telemonitoramento", desc: "Expert em tecnologia aplicada ao cuidado remoto." },
+                { name: "Enf. Carla Oliveira", role: "Educação em Saúde", desc: "Focada em empoderar pacientes através do conhecimento." },
+              ].map((member, idx) => (
+                <motion.div
+                  key={idx}
+                  {...fadeInUp}
+                  className="overflow-hidden rounded-3xl bg-white shadow-lg shadow-slate-200/50"
+                >
+                  <div className="aspect-[4/3] bg-slate-200" />
+                  <div className="p-8 text-center">
+                    <h3 className="text-xl font-bold">{member.name}</h3>
+                    <p className="text-sm font-medium text-primary uppercase tracking-wider">{member.role}</p>
+                    <p className="mt-4 text-muted-foreground">{member.desc}</p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Depoimentos Section */}
+        <section className="bg-primary/5 py-20 lg:py-32">
+          <div className="container mx-auto px-4 lg:px-8">
+            <div className="mb-16 text-center">
+              <h2 className="text-3xl font-bold text-foreground md:text-4xl">Depoimentos</h2>
+              <p className="mt-4 text-muted-foreground">O que dizem sobre nossa jornada juntos</p>
+            </div>
+            
+            <Carousel className="mx-auto w-full max-w-4xl">
+              <CarouselContent>
+                {[
+                  { name: "Maria Oliveira", text: "A Navega Onco trouxe a paz que eu precisava. Não me senti sozinha em nenhum momento do tratamento.", stars: 5 },
+                  { name: "João Pereira", text: "O telemonitoramento foi essencial para ajustar minhas medicações rapidamente.", stars: 5 },
+                  { name: "Ana Costa", text: "Equipe maravilhosa e suporte técnico impecável.", stars: 5 },
+                ].map((dep, idx) => (
+                  <CarouselItem key={idx}>
+                    <div className="p-2">
+                      <Card className="border-none shadow-none bg-transparent">
+                        <CardContent className="flex flex-col items-center justify-center p-6 text-center">
+                          <div className="flex mb-4 gap-1">
+                            {[...Array(dep.stars)].map((_, i) => <Star key={i} className="h-5 w-5 fill-yellow-400 text-yellow-400" />)}
+                          </div>
+                          <p className="text-2xl italic text-foreground/80">"{dep.text}"</p>
+                          <div className="mt-8 flex items-center gap-4">
+                            <div className="h-12 w-12 rounded-full bg-slate-300" />
+                            <div className="text-left">
+                              <p className="font-bold">{dep.name}</p>
+                              <p className="text-sm text-muted-foreground">Paciente</p>
+                            </div>
+                          </div>
+                        </CardContent>
+                      </Card>
+                    </div>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              <div className="flex justify-center mt-8 gap-4">
+                <CarouselPrevious className="static translate-y-0" />
+                <CarouselNext className="static translate-y-0" />
+              </div>
+            </Carousel>
+          </div>
+        </section>
+
+        {/* Blog Section */}
+        <section id="blog" className="py-20 lg:py-32">
+          <div className="container mx-auto px-4 lg:px-8">
+            <div className="mb-16 flex flex-col items-end justify-between gap-6 md:flex-row md:items-center">
+              <div>
+                <h2 className="text-3xl font-bold text-foreground md:text-4xl">Conteúdo & Educação</h2>
+                <p className="mt-4 text-muted-foreground">Informações de qualidade para sua jornada</p>
+              </div>
+              <Button variant="ghost" className="text-primary hover:text-primary/80">
+                Ver todos os artigos <ArrowRight className="ml-2 h-4 w-4" />
+              </Button>
+            </div>
+            <div className="grid gap-8 md:grid-cols-3">
+              {[
+                { title: "Cuidados durante o tratamento", category: "Educação" },
+                { title: "Direitos dos pacientes oncológicos", category: "Legislação" },
+                { title: "Qualidade de vida e nutrição", category: "Bem-estar" },
+              ].map((post, idx) => (
+                <motion.div
+                  key={idx}
+                  {...fadeInUp}
+                  className="group cursor-pointer overflow-hidden rounded-2xl bg-white transition-all hover:-translate-y-2"
+                >
+                  <div className="aspect-video bg-slate-100" />
+                  <div className="p-6">
+                    <Badge variant="secondary" className="mb-3">{post.category}</Badge>
+                    <h3 className="text-xl font-bold transition-colors group-hover:text-primary">{post.title}</h3>
+                    <p className="mt-3 text-sm text-muted-foreground">Leia mais sobre como gerenciar sua saúde e bem-estar...</p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* FAQ Section */}
         <section id="faq" className="py-20 lg:py-32">
           <div className="container mx-auto max-w-4xl px-4 lg:px-8">
