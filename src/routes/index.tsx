@@ -65,16 +65,26 @@ function LandingPage() {
 
       <main>
         {/* Hero Section */}
-        <section className="relative overflow-hidden pt-32 pb-20 lg:pt-48 lg:pb-32">
+        <section className="relative overflow-hidden pt-20 pb-20 lg:pt-32 lg:pb-32">
           <div className="absolute top-0 right-0 -z-10 h-[600px] w-[600px] rounded-full bg-primary/5 blur-3xl" />
           <div className="absolute -bottom-20 -left-20 -z-10 h-[400px] w-[400px] rounded-full bg-accent/10 blur-3xl" />
           
           <div className="container mx-auto px-4 lg:px-8">
-            <div className="grid items-center gap-12 lg:grid-cols-2">
+            <div className="flex flex-col items-center text-center">
               <motion.div
-                initial={{ opacity: 0, x: -30 }}
-                animate={{ opacity: 1, x: 0 }}
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
+                className="mb-8"
+              >
+                <img src={logoAsset.url} alt="Navega Onco" className="h-24 w-auto mx-auto lg:h-32" />
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }}
+                className="max-w-4xl"
               >
                 <Badge className="mb-6 border-primary/20 bg-primary/10 px-4 py-1.5 text-sm font-medium text-primary hover:bg-primary/20">
                   Saúde Digital & Humanizada
@@ -85,7 +95,7 @@ function LandingPage() {
                 <p className="mt-6 text-lg leading-relaxed text-muted-foreground md:text-xl">
                   Acompanhamento humanizado, navegação oncológica e telemonitoramento para trazer mais segurança, organização e tranquilidade durante todo o tratamento.
                 </p>
-                <div className="mt-10 flex flex-wrap gap-4">
+                <div className="mt-10 flex flex-wrap justify-center gap-4">
                   <Button 
                     size="lg" 
                     className="rounded-full bg-primary px-8 text-lg font-semibold shadow-lg shadow-primary/20 transition-transform hover:scale-105"
@@ -102,7 +112,7 @@ function LandingPage() {
                     Conheça nossa solução
                   </Button>
                 </div>
-                <div className="mt-8 flex items-center gap-4 text-sm text-muted-foreground">
+                <div className="mt-8 flex flex-col items-center gap-4 text-sm text-muted-foreground">
                   <div className="flex -space-x-2">
                     {[1, 2, 3].map((i) => (
                       <div key={i} className="h-10 w-10 rounded-full border-2 border-white bg-slate-200" />
