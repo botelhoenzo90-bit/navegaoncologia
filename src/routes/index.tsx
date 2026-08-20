@@ -604,8 +604,7 @@ function LandingPage() {
         <div className="container mx-auto px-4 lg:px-8">
           <div className="flex flex-col items-center justify-between gap-8 md:flex-row">
             <div className="flex items-center gap-2">
-              <img src="/logo.png" alt="Navega Onco" className="h-6 w-auto" onError={(e) => e.currentTarget.style.display = 'none'} />
-              <Activity className="h-5 w-5 text-primary" />
+              <img src={logoAsset.url} alt="Navega Onco" className="h-6 w-auto" />
               <span className="text-xl font-bold text-primary">Navega Onco</span>
             </div>
             <p className="text-sm text-muted-foreground">
