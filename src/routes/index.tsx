@@ -30,7 +30,9 @@ export const Route = createFileRoute("/")({
       { property: "og:title", content: "Navega Onco | Tecnologia e Cuidado Oncológico" },
       { property: "og:description", content: "Acompanhamento humanizado e tecnologia para pacientes oncológicos." },
       { property: "og:type", content: "website" },
+      { property: "og:image", content: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=80&w=1200" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:image", content: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=80&w=1200" },
     ],
   }),
 });
@@ -65,16 +67,26 @@ function LandingPage() {
 
       <main>
         {/* Hero Section */}
-        <section className="relative overflow-hidden pt-32 pb-20 lg:pt-48 lg:pb-32">
+        <section className="relative overflow-hidden pt-20 pb-20 lg:pt-32 lg:pb-32">
           <div className="absolute top-0 right-0 -z-10 h-[600px] w-[600px] rounded-full bg-primary/5 blur-3xl" />
           <div className="absolute -bottom-20 -left-20 -z-10 h-[400px] w-[400px] rounded-full bg-accent/10 blur-3xl" />
           
           <div className="container mx-auto px-4 lg:px-8">
-            <div className="grid items-center gap-12 lg:grid-cols-2">
+            <div className="flex flex-col items-center text-center">
               <motion.div
-                initial={{ opacity: 0, x: -30 }}
-                animate={{ opacity: 1, x: 0 }}
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
+                className="mb-8"
+              >
+                <img src={logoAsset.url} alt="Navega Onco" className="h-24 w-auto mx-auto lg:h-32" />
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }}
+                className="max-w-4xl"
               >
                 <Badge className="mb-6 border-primary/20 bg-primary/10 px-4 py-1.5 text-sm font-medium text-primary hover:bg-primary/20">
                   Saúde Digital & Humanizada
@@ -85,7 +97,7 @@ function LandingPage() {
                 <p className="mt-6 text-lg leading-relaxed text-muted-foreground md:text-xl">
                   Acompanhamento humanizado, navegação oncológica e telemonitoramento para trazer mais segurança, organização e tranquilidade durante todo o tratamento.
                 </p>
-                <div className="mt-10 flex flex-wrap gap-4">
+                <div className="mt-10 flex flex-wrap justify-center gap-4">
                   <Button 
                     size="lg" 
                     className="rounded-full bg-primary px-8 text-lg font-semibold shadow-lg shadow-primary/20 transition-transform hover:scale-105"
@@ -102,7 +114,7 @@ function LandingPage() {
                     Conheça nossa solução
                   </Button>
                 </div>
-                <div className="mt-8 flex items-center gap-4 text-sm text-muted-foreground">
+                <div className="mt-8 flex flex-col items-center gap-4 text-sm text-muted-foreground">
                   <div className="flex -space-x-2">
                     {[1, 2, 3].map((i) => (
                       <div key={i} className="h-10 w-10 rounded-full border-2 border-white bg-slate-200" />
@@ -116,19 +128,19 @@ function LandingPage() {
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
-                className="relative hidden lg:block"
+                className="relative mt-16 w-full max-w-4xl"
               >
                 <div className="relative z-10 overflow-hidden rounded-3xl shadow-2xl">
                   <img 
-                    src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=80&w=800" 
+                    src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=80&w=1200" 
                     alt="Profissional de saúde cuidando de paciente" 
-                    className="h-full w-full object-cover"
+                    className="h-full w-full object-cover aspect-video"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent" />
                 </div>
-                <div className="absolute -right-8 -bottom-8 z-20 w-64 rounded-2xl bg-white p-6 shadow-xl shadow-black/5 ring-1 ring-black/5">
-                  <div className="flex items-center gap-4">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-full bg-accent/20 text-accent">
+                <div className="absolute -right-4 -bottom-4 z-20 w-64 rounded-2xl bg-white p-6 shadow-xl shadow-black/5 ring-1 ring-black/5 hidden md:block">
+                  <div className="flex items-center gap-4 text-left">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-full bg-accent/20 text-accent shrink-0">
                       <Heart className="h-6 w-6" />
                     </div>
                     <div>
@@ -163,12 +175,19 @@ function LandingPage() {
                   key={idx}
                   {...fadeInUp}
                   transition={{ delay: idx * 0.1 }}
-                  className="group rounded-3xl bg-white p-8 shadow-sm ring-1 ring-slate-100 transition-all hover:shadow-md"
+                  className="group rounded-3xl bg-white p-8 shadow-sm ring-1 ring-slate-100 transition-all hover:shadow-md flex flex-col items-center text-center"
                 >
                   <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/10 text-primary transition-transform group-hover:scale-110">
                     <item.icon className="h-7 w-7" />
                   </div>
-                  <h3 className="text-xl font-bold text-foreground">{item.title}</h3>
+                  <h3 className="text-xl font-bold text-foreground mb-4">{item.title}</h3>
+                  <Button 
+                    variant="link" 
+                    className="text-primary p-0 h-auto font-bold"
+                    onClick={() => window.open(whatsappLink, "_blank")}
+                  >
+                    Saiba mais <ArrowRight className="ml-2 h-4 w-4" />
+                  </Button>
                 </motion.div>
               ))}
             </div>
@@ -209,56 +228,65 @@ function LandingPage() {
 
         {/* Solução & Serviços */}
         <section id="serviços" className="bg-primary py-20 text-white lg:py-32">
-          <div className="container mx-auto px-4 lg:px-8">
-            <div className="grid gap-16 lg:grid-cols-2 lg:items-center">
-              <div>
-                <h2 className="text-3xl font-bold md:text-4xl lg:text-5xl">
-                  Mais do que uma consulta, caminhamos ao seu lado.
-                </h2>
-                <p className="mt-8 text-xl text-white/80">
-                  Nossa solução integra tecnologia e cuidado humano para monitorar cada passo da sua jornada.
-                </p>
-                <div className="mt-12 grid gap-6 sm:grid-cols-2">
-                  {[
-                    "Navegação Oncológica",
-                    "Telemonitoramento",
-                    "Enfermagem Online",
-                    "Educação em Saúde",
-                    "Gestão de Sintomas",
-                    "Acompanhamento Familiar"
-                  ].map((service, idx) => (
-                    <div key={idx} className="flex items-center gap-3">
-                      <div className="flex h-8 w-8 items-center justify-center rounded-full bg-white/20">
-                        <CheckCircle2 className="h-5 w-5" />
-                      </div>
-                      <span className="font-medium">{service}</span>
-                    </div>
-                  ))}
-                </div>
-                <Button 
-                  size="lg" 
-                  variant="secondary" 
-                  className="mt-12 rounded-full px-8 text-primary shadow-xl"
-                  onClick={() => window.open(whatsappLink, "_blank")}
-                >
-                  Saiba mais no WhatsApp <ArrowRight className="ml-2 h-5 w-5" />
-                </Button>
-              </div>
-              <div className="grid gap-6 sm:grid-cols-2">
+          <div className="container mx-auto px-4 lg:px-8 text-center">
+            <div className="max-w-4xl mx-auto flex flex-col items-center">
+              <h2 className="text-3xl font-bold md:text-4xl lg:text-5xl">
+                Mais do que uma consulta, caminhamos ao seu lado.
+              </h2>
+              <p className="mt-8 text-xl text-white/80">
+                Nossa solução integra tecnologia e cuidado humano para monitorar cada passo da sua jornada.
+              </p>
+              <div className="mt-12 grid gap-6 sm:grid-cols-2 md:grid-cols-3 w-full">
                 {[
-                  { title: "Telemonitoramento", desc: "Monitoramento constante de dor, náuseas e outros sintomas." },
-                  { title: "Protocolos Digitais", desc: "Automação e organização para clínicas e hospitais." },
-                ].map((card, idx) => (
-                  <motion.div
-                    key={idx}
-                    whileHover={{ y: -5 }}
-                    className="rounded-3xl bg-white/10 p-8 backdrop-blur-lg"
-                  >
-                    <h4 className="text-xl font-bold">{card.title}</h4>
-                    <p className="mt-4 text-white/70">{card.desc}</p>
-                  </motion.div>
+                  "Navegação Oncológica",
+                  "Telemonitoramento",
+                  "Enfermagem Online",
+                  "Educação em Saúde",
+                  "Gestão de Sintomas",
+                  "Acompanhamento Familiar"
+                ].map((service, idx) => (
+                  <div key={idx} className="flex items-center justify-center gap-3 bg-white/10 rounded-xl p-4">
+                    <div className="flex h-8 w-8 items-center justify-center rounded-full bg-white/20 shrink-0">
+                      <CheckCircle2 className="h-5 w-5" />
+                    </div>
+                    <span className="font-medium">{service}</span>
+                  </div>
                 ))}
               </div>
+              <Button 
+                size="lg" 
+                variant="secondary" 
+                className="mt-12 rounded-full px-10 text-primary shadow-xl font-bold hover:scale-105 transition-transform"
+                onClick={() => window.open(whatsappLink, "_blank")}
+              >
+                Solicitar atendimento no WhatsApp <ArrowRight className="ml-2 h-5 w-5" />
+              </Button>
+            </div>
+            
+            <div className="mt-20 grid gap-8 sm:grid-cols-2 max-w-4xl mx-auto">
+              {[
+                { title: "Telemonitoramento", desc: "Monitoramento constante de dor, náuseas e outros sintomas.", icon: Activity },
+                { title: "Protocolos Digitais", desc: "Automação e organização para clínicas e hospitais.", icon: Shield },
+              ].map((card, idx) => (
+                <motion.div
+                  key={idx}
+                  whileHover={{ y: -5 }}
+                  className="rounded-3xl bg-white/10 p-8 backdrop-blur-lg flex flex-col items-center"
+                >
+                  <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-white/20 text-white">
+                    <card.icon className="h-7 w-7" />
+                  </div>
+                  <h4 className="text-xl font-bold">{card.title}</h4>
+                  <p className="mt-4 text-white/70 mb-6">{card.desc}</p>
+                  <Button 
+                    variant="outline" 
+                    className="border-white/20 text-white hover:bg-white/10 rounded-xl w-full font-bold"
+                    onClick={() => window.open(whatsappLink, "_blank")}
+                  >
+                    Falar sobre este serviço
+                  </Button>
+                </motion.div>
+              ))}
             </div>
           </div>
         </section>
@@ -355,13 +383,20 @@ function LandingPage() {
                 <motion.div
                   key={idx}
                   {...fadeInUp}
-                  className="rounded-2xl bg-white p-8 shadow-sm transition-all hover:shadow-md"
+                  className="rounded-2xl bg-white p-8 shadow-sm transition-all hover:shadow-md flex flex-col items-center text-center"
                 >
                   <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-primary/5 text-primary">
                     <Users className="h-6 w-6" />
                   </div>
                   <h3 className="text-xl font-bold">{item.title}</h3>
-                  <p className="mt-3 text-muted-foreground">{item.desc}</p>
+                  <p className="mt-3 text-muted-foreground mb-6">{item.desc}</p>
+                  <Button 
+                    variant="outline" 
+                    className="border-primary/20 text-primary hover:bg-primary/5 rounded-xl w-full font-bold"
+                    onClick={() => window.open(whatsappLink, "_blank")}
+                  >
+                    Agendar para meu perfil
+                  </Button>
                 </motion.div>
               ))}
             </div>
@@ -384,13 +419,20 @@ function LandingPage() {
                 <motion.div
                   key={idx}
                   {...fadeInUp}
-                  className="overflow-hidden rounded-3xl bg-white shadow-lg shadow-slate-200/50"
+                  className="overflow-hidden rounded-3xl bg-white shadow-lg shadow-slate-200/50 flex flex-col items-center"
                 >
-                  <div className="aspect-[4/3] bg-slate-200" />
-                  <div className="p-8 text-center">
+                  <div className="aspect-[4/3] w-full bg-slate-200" />
+                  <div className="p-8 text-center flex flex-col items-center">
                     <h3 className="text-xl font-bold">{member.name}</h3>
-                    <p className="text-sm font-medium text-primary uppercase tracking-wider">{member.role}</p>
-                    <p className="mt-4 text-muted-foreground">{member.desc}</p>
+                    <p className="text-sm font-medium text-primary uppercase tracking-wider mb-4">{member.role}</p>
+                    <p className="mt-4 text-muted-foreground mb-6">{member.desc}</p>
+                    <Button 
+                      variant="outline" 
+                      className="border-primary/20 text-primary hover:bg-primary/5 rounded-xl font-bold"
+                      onClick={() => window.open(whatsappLink, "_blank")}
+                    >
+                      Consultar com {member.name.split(' ')[0]}
+                    </Button>
                   </div>
                 </motion.div>
               ))}
@@ -463,13 +505,20 @@ function LandingPage() {
                 <motion.div
                   key={idx}
                   {...fadeInUp}
-                  className="group cursor-pointer overflow-hidden rounded-2xl bg-white transition-all hover:-translate-y-2"
+                  className="group cursor-pointer overflow-hidden rounded-2xl bg-white transition-all hover:-translate-y-2 flex flex-col items-center text-center shadow-sm hover:shadow-md"
                 >
-                  <div className="aspect-video bg-slate-100" />
-                  <div className="p-6">
+                  <div className="aspect-video w-full bg-slate-100" />
+                  <div className="p-6 flex flex-col items-center">
                     <Badge variant="secondary" className="mb-3">{post.category}</Badge>
                     <h3 className="text-xl font-bold transition-colors group-hover:text-primary">{post.title}</h3>
-                    <p className="mt-3 text-sm text-muted-foreground">Leia mais sobre como gerenciar sua saúde e bem-estar...</p>
+                    <p className="mt-3 text-sm text-muted-foreground mb-6">Leia mais sobre como gerenciar sua saúde e bem-estar...</p>
+                    <Button 
+                      variant="link" 
+                      className="text-primary p-0 h-auto font-bold"
+                      onClick={() => window.open(whatsappLink, "_blank")}
+                    >
+                      Ler artigo no WhatsApp <ArrowRight className="ml-2 h-4 w-4" />
+                    </Button>
                   </div>
                 </motion.div>
               ))}
@@ -491,11 +540,19 @@ function LandingPage() {
                 { q: "Quem pode utilizar o serviço?", a: "Pacientes oncológicos em qualquer estágio do tratamento, seus familiares, além de clínicas e hospitais que buscam melhorar o desfecho clínico." },
               ].map((item, idx) => (
                 <AccordionItem key={idx} value={`item-${idx}`} className="mb-4 border-b-0 rounded-2xl bg-slate-50 px-6">
-                  <AccordionTrigger className="text-left text-lg font-semibold hover:no-underline">
+                  <AccordionTrigger className="text-center justify-center text-lg font-semibold hover:no-underline [&[data-state=open]>svg]:rotate-180">
                     {item.q}
                   </AccordionTrigger>
-                  <AccordionContent className="text-muted-foreground">
-                    {item.a}
+                  <AccordionContent className="text-muted-foreground text-center flex flex-col items-center">
+                    <p className="mb-4">{item.a}</p>
+                    <Button 
+                      variant="outline" 
+                      size="sm"
+                      className="border-primary/20 text-primary hover:bg-primary/5 rounded-lg font-bold"
+                      onClick={() => window.open(whatsappLink, "_blank")}
+                    >
+                      Ainda tenho dúvida
+                    </Button>
                   </AccordionContent>
                 </AccordionItem>
               ))}
