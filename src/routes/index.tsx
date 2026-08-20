@@ -173,12 +173,19 @@ function LandingPage() {
                   key={idx}
                   {...fadeInUp}
                   transition={{ delay: idx * 0.1 }}
-                  className="group rounded-3xl bg-white p-8 shadow-sm ring-1 ring-slate-100 transition-all hover:shadow-md"
+                  className="group rounded-3xl bg-white p-8 shadow-sm ring-1 ring-slate-100 transition-all hover:shadow-md flex flex-col items-center text-center"
                 >
                   <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/10 text-primary transition-transform group-hover:scale-110">
                     <item.icon className="h-7 w-7" />
                   </div>
-                  <h3 className="text-xl font-bold text-foreground">{item.title}</h3>
+                  <h3 className="text-xl font-bold text-foreground mb-4">{item.title}</h3>
+                  <Button 
+                    variant="link" 
+                    className="text-primary p-0 h-auto font-bold"
+                    onClick={() => window.open(whatsappLink, "_blank")}
+                  >
+                    Saiba mais <ArrowRight className="ml-2 h-4 w-4" />
+                  </Button>
                 </motion.div>
               ))}
             </div>
