@@ -126,19 +126,19 @@ function LandingPage() {
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
-                className="relative hidden lg:block"
+                className="relative mt-16 w-full max-w-4xl"
               >
                 <div className="relative z-10 overflow-hidden rounded-3xl shadow-2xl">
                   <img 
-                    src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=80&w=800" 
+                    src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=80&w=1200" 
                     alt="Profissional de saúde cuidando de paciente" 
-                    className="h-full w-full object-cover"
+                    className="h-full w-full object-cover aspect-video"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent" />
                 </div>
-                <div className="absolute -right-8 -bottom-8 z-20 w-64 rounded-2xl bg-white p-6 shadow-xl shadow-black/5 ring-1 ring-black/5">
-                  <div className="flex items-center gap-4">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-full bg-accent/20 text-accent">
+                <div className="absolute -right-4 -bottom-4 z-20 w-64 rounded-2xl bg-white p-6 shadow-xl shadow-black/5 ring-1 ring-black/5 hidden md:block">
+                  <div className="flex items-center gap-4 text-left">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-full bg-accent/20 text-accent shrink-0">
                       <Heart className="h-6 w-6" />
                     </div>
                     <div>
