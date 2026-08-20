@@ -226,56 +226,65 @@ function LandingPage() {
 
         {/* Solução & Serviços */}
         <section id="serviços" className="bg-primary py-20 text-white lg:py-32">
-          <div className="container mx-auto px-4 lg:px-8">
-            <div className="grid gap-16 lg:grid-cols-2 lg:items-center">
-              <div>
-                <h2 className="text-3xl font-bold md:text-4xl lg:text-5xl">
-                  Mais do que uma consulta, caminhamos ao seu lado.
-                </h2>
-                <p className="mt-8 text-xl text-white/80">
-                  Nossa solução integra tecnologia e cuidado humano para monitorar cada passo da sua jornada.
-                </p>
-                <div className="mt-12 grid gap-6 sm:grid-cols-2">
-                  {[
-                    "Navegação Oncológica",
-                    "Telemonitoramento",
-                    "Enfermagem Online",
-                    "Educação em Saúde",
-                    "Gestão de Sintomas",
-                    "Acompanhamento Familiar"
-                  ].map((service, idx) => (
-                    <div key={idx} className="flex items-center gap-3">
-                      <div className="flex h-8 w-8 items-center justify-center rounded-full bg-white/20">
-                        <CheckCircle2 className="h-5 w-5" />
-                      </div>
-                      <span className="font-medium">{service}</span>
-                    </div>
-                  ))}
-                </div>
-                <Button 
-                  size="lg" 
-                  variant="secondary" 
-                  className="mt-12 rounded-full px-8 text-primary shadow-xl"
-                  onClick={() => window.open(whatsappLink, "_blank")}
-                >
-                  Saiba mais no WhatsApp <ArrowRight className="ml-2 h-5 w-5" />
-                </Button>
-              </div>
-              <div className="grid gap-6 sm:grid-cols-2">
+          <div className="container mx-auto px-4 lg:px-8 text-center">
+            <div className="max-w-4xl mx-auto flex flex-col items-center">
+              <h2 className="text-3xl font-bold md:text-4xl lg:text-5xl">
+                Mais do que uma consulta, caminhamos ao seu lado.
+              </h2>
+              <p className="mt-8 text-xl text-white/80">
+                Nossa solução integra tecnologia e cuidado humano para monitorar cada passo da sua jornada.
+              </p>
+              <div className="mt-12 grid gap-6 sm:grid-cols-2 md:grid-cols-3 w-full">
                 {[
-                  { title: "Telemonitoramento", desc: "Monitoramento constante de dor, náuseas e outros sintomas." },
-                  { title: "Protocolos Digitais", desc: "Automação e organização para clínicas e hospitais." },
-                ].map((card, idx) => (
-                  <motion.div
-                    key={idx}
-                    whileHover={{ y: -5 }}
-                    className="rounded-3xl bg-white/10 p-8 backdrop-blur-lg"
-                  >
-                    <h4 className="text-xl font-bold">{card.title}</h4>
-                    <p className="mt-4 text-white/70">{card.desc}</p>
-                  </motion.div>
+                  "Navegação Oncológica",
+                  "Telemonitoramento",
+                  "Enfermagem Online",
+                  "Educação em Saúde",
+                  "Gestão de Sintomas",
+                  "Acompanhamento Familiar"
+                ].map((service, idx) => (
+                  <div key={idx} className="flex items-center justify-center gap-3 bg-white/10 rounded-xl p-4">
+                    <div className="flex h-8 w-8 items-center justify-center rounded-full bg-white/20 shrink-0">
+                      <CheckCircle2 className="h-5 w-5" />
+                    </div>
+                    <span className="font-medium">{service}</span>
+                  </div>
                 ))}
               </div>
+              <Button 
+                size="lg" 
+                variant="secondary" 
+                className="mt-12 rounded-full px-10 text-primary shadow-xl font-bold hover:scale-105 transition-transform"
+                onClick={() => window.open(whatsappLink, "_blank")}
+              >
+                Solicitar atendimento no WhatsApp <ArrowRight className="ml-2 h-5 w-5" />
+              </Button>
+            </div>
+            
+            <div className="mt-20 grid gap-8 sm:grid-cols-2 max-w-4xl mx-auto">
+              {[
+                { title: "Telemonitoramento", desc: "Monitoramento constante de dor, náuseas e outros sintomas.", icon: Activity },
+                { title: "Protocolos Digitais", desc: "Automação e organização para clínicas e hospitais.", icon: Shield },
+              ].map((card, idx) => (
+                <motion.div
+                  key={idx}
+                  whileHover={{ y: -5 }}
+                  className="rounded-3xl bg-white/10 p-8 backdrop-blur-lg flex flex-col items-center"
+                >
+                  <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-white/20 text-white">
+                    <card.icon className="h-7 w-7" />
+                  </div>
+                  <h4 className="text-xl font-bold">{card.title}</h4>
+                  <p className="mt-4 text-white/70 mb-6">{card.desc}</p>
+                  <Button 
+                    variant="outline" 
+                    className="border-white/20 text-white hover:bg-white/10 rounded-xl w-full font-bold"
+                    onClick={() => window.open(whatsappLink, "_blank")}
+                  >
+                    Falar sobre este serviço
+                  </Button>
+                </motion.div>
+              ))}
             </div>
           </div>
         </section>
