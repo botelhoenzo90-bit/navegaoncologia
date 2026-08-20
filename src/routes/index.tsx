@@ -538,11 +538,19 @@ function LandingPage() {
                 { q: "Quem pode utilizar o serviço?", a: "Pacientes oncológicos em qualquer estágio do tratamento, seus familiares, além de clínicas e hospitais que buscam melhorar o desfecho clínico." },
               ].map((item, idx) => (
                 <AccordionItem key={idx} value={`item-${idx}`} className="mb-4 border-b-0 rounded-2xl bg-slate-50 px-6">
-                  <AccordionTrigger className="text-left text-lg font-semibold hover:no-underline">
+                  <AccordionTrigger className="text-center justify-center text-lg font-semibold hover:no-underline [&[data-state=open]>svg]:rotate-180">
                     {item.q}
                   </AccordionTrigger>
-                  <AccordionContent className="text-muted-foreground">
-                    {item.a}
+                  <AccordionContent className="text-muted-foreground text-center flex flex-col items-center">
+                    <p className="mb-4">{item.a}</p>
+                    <Button 
+                      variant="outline" 
+                      size="sm"
+                      className="border-primary/20 text-primary hover:bg-primary/5 rounded-lg font-bold"
+                      onClick={() => window.open(whatsappLink, "_blank")}
+                    >
+                      Ainda tenho dúvida
+                    </Button>
                   </AccordionContent>
                 </AccordionItem>
               ))}
