@@ -19,6 +19,7 @@ import {
 } from "@/components/ui/carousel";
 import { Badge } from "@/components/ui/badge";
 import logoAsset from "@/assets/logo.asset.json";
+import whatsappLogoAsset from "@/assets/whatsapp-logo.asset.json";
 
 export const Route = createFileRoute("/")({
   component: LandingPage,
@@ -625,9 +626,9 @@ function LandingPage() {
         animate={{ scale: 1, opacity: 1 }}
         whileHover={{ scale: 1.1 }}
         onClick={() => window.open(whatsappLink, "_blank")}
-        className="fixed bottom-8 right-8 z-[100] flex h-16 w-16 items-center justify-center rounded-full bg-green-500 text-white shadow-2xl shadow-green-500/30"
+        className="fixed bottom-8 right-8 z-[100] flex h-16 w-16 items-center justify-center rounded-full bg-green-500 text-white shadow-2xl shadow-green-500/30 overflow-hidden"
       >
-        <MessageSquare className="h-8 w-8" />
+        <img src={whatsappLogoAsset.url} alt="WhatsApp" className="h-full w-full object-cover" />
       </motion.button>
     </div>
   );
