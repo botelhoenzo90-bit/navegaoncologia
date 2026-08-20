@@ -473,148 +473,100 @@ function LandingPage() {
             </div>
           </div>
         </section>
-            <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-              {[
-                { name: "Dra. Ana Silva", role: "Navegadora Oncológica", desc: "Especialista em gestão de sintomas e suporte emocional." },
-                { name: "Dr. Roberto Santos", role: "Coordenação de Telemonitoramento", desc: "Expert em tecnologia aplicada ao cuidado remoto." },
-                { name: "Enf. Carla Oliveira", role: "Educação em Saúde", desc: "Focada em empoderar pacientes através do conhecimento." },
-              ].map((member, idx) => (
-                <motion.div
-                  key={idx}
-                  {...fadeInUp}
-                  className="overflow-hidden rounded-3xl bg-white shadow-lg shadow-slate-200/50 flex flex-col items-center"
-                >
-                  <div className="aspect-[4/3] w-full bg-slate-200" />
-                  <div className="p-8 text-center flex flex-col items-center">
-                    <h3 className="text-xl font-bold">{member.name}</h3>
-                    <p className="text-sm font-medium text-primary uppercase tracking-wider mb-4">{member.role}</p>
-                    <p className="mt-4 text-muted-foreground mb-6">{member.desc}</p>
-                    <Button 
-                      variant="outline" 
-                      className="border-primary/20 text-primary hover:bg-primary/5 rounded-xl font-bold"
-                      onClick={() => window.open(whatsappLink, "_blank")}
-                    >
-                      Consultar com {member.name.split(' ')[0]}
-                    </Button>
-                  </div>
-                </motion.div>
-              ))}
+        {/* Depoimentos Section - Esteira Infinita */}
+        <section className="bg-slate-50 py-24 lg:py-36 overflow-hidden">
+          <div className="container mx-auto px-4 lg:px-8 mb-16">
+            <div className="text-center max-w-3xl mx-auto">
+              <Badge className="bg-primary/10 text-primary border-primary/20 mb-4 px-6 py-1">Depoimentos</Badge>
+              <h2 className="text-4xl font-extrabold text-foreground md:text-5xl">O Que Dizem Nossos Pacientes</h2>
+              <p className="mt-6 text-xl text-muted-foreground">
+                Histórias reais de quem transformou a jornada oncológica com o nosso apoio.
+              </p>
             </div>
           </div>
-        </section>
-
-        {/* Depoimentos Section */}
-        <section className="bg-primary/5 py-20 lg:py-32">
-          <div className="container mx-auto px-4 lg:px-8">
-            <div className="mb-16 text-center">
-              <h2 className="text-3xl font-bold text-foreground md:text-4xl">Depoimentos</h2>
-              <p className="mt-4 text-muted-foreground">O que dizem sobre nossa jornada juntos</p>
-            </div>
-            
-            <Carousel className="mx-auto w-full max-w-4xl">
-              <CarouselContent>
-                {[
-                  { name: "Maria Oliveira", text: "A Navega Onco trouxe a paz que eu precisava. Não me senti sozinha em nenhum momento do tratamento.", stars: 5 },
-                  { name: "João Pereira", text: "O telemonitoramento foi essencial para ajustar minhas medicações rapidamente.", stars: 5 },
-                  { name: "Ana Costa", text: "Equipe maravilhosa e suporte técnico impecável.", stars: 5 },
-                ].map((dep, idx) => (
-                  <CarouselItem key={idx}>
-                    <div className="p-2">
-                      <Card className="border-none shadow-none bg-transparent">
-                        <CardContent className="flex flex-col items-center justify-center p-6 text-center">
-                          <div className="flex mb-4 gap-1">
-                            {[...Array(dep.stars)].map((_, i) => <Star key={i} className="h-5 w-5 fill-yellow-400 text-yellow-400" />)}
-                          </div>
-                          <p className="text-2xl italic text-foreground/80">"{dep.text}"</p>
-                          <div className="mt-8 flex items-center gap-4">
-                            <div className="h-12 w-12 rounded-full bg-slate-300" />
-                            <div className="text-left">
-                              <p className="font-bold">{dep.name}</p>
-                              <p className="text-sm text-muted-foreground">Paciente</p>
-                            </div>
-                          </div>
-                        </CardContent>
-                      </Card>
+          
+          <div className="relative flex overflow-hidden">
+            <motion.div 
+              animate={{ x: ["0%", "-50%"] }}
+              transition={{ 
+                duration: 40, 
+                repeat: Infinity, 
+                ease: "linear" 
+              }}
+              className="flex gap-8 pr-8"
+            >
+              {[...Array(2)].map((_, i) => (
+                <div key={i} className="flex gap-8">
+                  {[
+                    { name: "Maria Oliveira", text: "A Navega Onco trouxe a paz que eu precisava. Não me senti sozinha em nenhum momento do tratamento.", stars: 5, img: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=100" },
+                    { name: "João Pereira", text: "O telemonitoramento foi essencial para ajustar minhas medicações rapidamente.", stars: 5, img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=100" },
+                    { name: "Ana Costa", text: "Equipe maravilhosa e suporte técnico impecável. Super recomendo a Navega.", stars: 5, img: "https://images.unsplash.com/photo-1554151228-14d9def656e4?auto=format&fit=crop&q=80&w=100" },
+                    { name: "Carlos Melo", text: "A segurança que a plataforma nos passa durante a quimioterapia é indescritível.", stars: 5, img: "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?auto=format&fit=crop&q=80&w=100" },
+                  ].map((dep, idx) => (
+                    <div key={idx} className="w-[350px] md:w-[450px] shrink-0 rounded-[2.5rem] bg-white p-10 shadow-xl shadow-slate-200/50 border border-slate-100 flex flex-col items-center text-center">
+                      <div className="flex mb-6 gap-1">
+                        {[...Array(dep.stars)].map((_, i) => <Star key={i} className="h-6 w-6 fill-yellow-400 text-yellow-400" />)}
+                      </div>
+                      <p className="text-xl md:text-2xl italic text-foreground/80 leading-relaxed mb-10">"{dep.text}"</p>
+                      <div className="flex items-center gap-4 mt-auto">
+                        <img src={dep.img} alt={dep.name} className="h-16 w-16 rounded-full border-4 border-primary/10 object-cover" />
+                        <div className="text-left">
+                          <p className="font-bold text-lg">{dep.name}</p>
+                          <Badge variant="secondary" className="text-xs">Paciente</Badge>
+                        </div>
+                      </div>
                     </div>
-                  </CarouselItem>
-                ))}
-              </CarouselContent>
-              <div className="flex justify-center mt-8 gap-4">
-                <CarouselPrevious className="static translate-y-0" />
-                <CarouselNext className="static translate-y-0" />
-              </div>
-            </Carousel>
+                  ))}
+                </div>
+              ))}
+            </motion.div>
           </div>
         </section>
 
-        {/* Blog Section */}
-        <section id="blog" className="py-20 lg:py-32">
+        {/* Patrocinadores Section (Substituindo Blog/Conteúdo) */}
+        <section className="py-24 bg-white border-y border-slate-100">
           <div className="container mx-auto px-4 lg:px-8">
-            <div className="mb-16 flex flex-col items-end justify-between gap-6 md:flex-row md:items-center">
-              <div>
-                <h2 className="text-3xl font-bold text-foreground md:text-4xl">Conteúdo & Educação</h2>
-                <p className="mt-4 text-muted-foreground">Informações de qualidade para sua jornada</p>
-              </div>
-              <Button variant="ghost" className="text-primary hover:text-primary/80">
-                Ver todos os artigos <ArrowRight className="ml-2 h-4 w-4" />
-              </Button>
+            <div className="mb-12 text-center">
+              <p className="text-sm font-bold text-muted-foreground uppercase tracking-[0.2em]">Instituições e Parceiros que Confiam</p>
             </div>
-            <div className="grid gap-8 md:grid-cols-3">
-              {[
-                { title: "Cuidados durante o tratamento", category: "Educação" },
-                { title: "Direitos dos pacientes oncológicos", category: "Legislação" },
-                { title: "Qualidade de vida e nutrição", category: "Bem-estar" },
-              ].map((post, idx) => (
-                <motion.div
-                  key={idx}
-                  {...fadeInUp}
-                  className="group cursor-pointer overflow-hidden rounded-2xl bg-white transition-all hover:-translate-y-2 flex flex-col items-center text-center shadow-sm hover:shadow-md"
-                >
-                  <div className="aspect-video w-full bg-slate-100" />
-                  <div className="p-6 flex flex-col items-center">
-                    <Badge variant="secondary" className="mb-3">{post.category}</Badge>
-                    <h3 className="text-xl font-bold transition-colors group-hover:text-primary">{post.title}</h3>
-                    <p className="mt-3 text-sm text-muted-foreground mb-6">Leia mais sobre como gerenciar sua saúde e bem-estar...</p>
-                    <Button 
-                      variant="link" 
-                      className="text-primary p-0 h-auto font-bold"
-                      onClick={() => window.open(whatsappLink, "_blank")}
-                    >
-                      Ler artigo no WhatsApp <ArrowRight className="ml-2 h-4 w-4" />
-                    </Button>
-                  </div>
-                </motion.div>
+            <div className="flex flex-wrap justify-center items-center gap-12 md:gap-24 opacity-50 grayscale hover:grayscale-0 transition-all">
+              {/* Placeholder Logos para Patrocinadores */}
+              {[1, 2, 3, 4, 5].map((i) => (
+                <div key={i} className="h-12 w-auto flex items-center justify-center font-bold text-2xl text-slate-400">
+                  PARCEIRO {i}
+                </div>
               ))}
             </div>
           </div>
         </section>
 
-        {/* FAQ Section */}
-        <section id="faq" className="py-20 lg:py-32">
+        {/* FAQ Section - Refatorada */}
+        <section id="faq" className="py-24 lg:py-36 bg-slate-50">
           <div className="container mx-auto max-w-4xl px-4 lg:px-8">
-            <div className="mb-16 text-center">
-              <h2 className="text-3xl font-bold text-foreground md:text-4xl">Perguntas Frequentes</h2>
+            <div className="mb-20 text-center">
+              <Badge className="bg-primary/10 text-primary border-none mb-4 px-6 py-1">Dúvidas</Badge>
+              <h2 className="text-4xl font-extrabold text-foreground md:text-5xl">Perguntas Frequentes</h2>
+              <p className="mt-4 text-xl text-muted-foreground">Tudo o que você precisa saber sobre o nosso acompanhamento.</p>
             </div>
-            <Accordion type="single" collapsible className="w-full">
+            <Accordion type="single" collapsible className="w-full space-y-4">
               {[
                 { q: "Como funciona o acompanhamento?", a: "Nossa equipe utiliza tecnologia de ponta para monitorar seus sintomas em tempo real e fornecer orientações personalizadas através da nossa plataforma e contato direto." },
                 { q: "Preciso sair de casa para ser atendido?", a: "Não. A Navega Onco é focada em saúde digital, oferecendo suporte remoto de alta qualidade que complementa o seu tratamento presencial." },
                 { q: "A Navega Onco substitui o médico?", a: "De forma alguma. Somos um serviço de suporte e navegação que trabalha em conjunto com sua equipe médica para otimizar os resultados e sua qualidade de vida." },
                 { q: "Quem pode utilizar o serviço?", a: "Pacientes oncológicos em qualquer estágio do tratamento, seus familiares, além de clínicas e hospitais que buscam melhorar o desfecho clínico." },
               ].map((item, idx) => (
-                <AccordionItem key={idx} value={`item-${idx}`} className="mb-4 border-b-0 rounded-2xl bg-slate-50 px-6">
-                  <AccordionTrigger className="text-center justify-center text-lg font-semibold hover:no-underline [&[data-state=open]>svg]:rotate-180">
+                <AccordionItem key={idx} value={`item-${idx}`} className="border-none rounded-3xl bg-white px-8 shadow-sm hover:shadow-md transition-shadow">
+                  <AccordionTrigger className="text-left text-xl font-bold py-8 hover:no-underline [&[data-state=open]>svg]:rotate-180">
                     {item.q}
                   </AccordionTrigger>
-                  <AccordionContent className="text-muted-foreground text-center flex flex-col items-center">
-                    <p className="mb-4">{item.a}</p>
+                  <AccordionContent className="text-muted-foreground text-lg leading-relaxed pb-8">
+                    <p className="mb-6">{item.a}</p>
                     <Button 
                       variant="outline" 
-                      size="sm"
-                      className="border-primary/20 text-primary hover:bg-primary/5 rounded-lg font-bold"
+                      className="rounded-full border-primary/20 text-primary font-bold hover:bg-primary/5 px-8"
                       onClick={() => window.open(whatsappLink, "_blank")}
                     >
-                      Ainda tenho dúvida
+                      Falar com especialista <ArrowRight className="ml-2 h-4 w-4" />
                     </Button>
                   </AccordionContent>
                 </AccordionItem>
