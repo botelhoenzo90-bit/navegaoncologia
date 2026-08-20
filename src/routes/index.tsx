@@ -399,30 +399,31 @@ function LandingPage() {
               <h2 className="text-3xl font-bold text-foreground md:text-4xl">Para quem é a Navega Onco?</h2>
               <p className="mt-4 text-muted-foreground">Soluções completas para todo o ecossistema de saúde oncológica</p>
             </div>
-            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
               {[
-                { title: "Pacientes e Familiares", desc: "Suporte contínuo e navegação para reduzir a ansiedade e organizar a jornada." },
-                { title: "Clínicas Oncológicas", desc: "Otimização de processos e melhoria do desfecho clínico dos pacientes." },
-                { title: "Hospitais", desc: "Redução de reinternações e gestão eficiente de sintomas pós-alta." },
-                { title: "Centros de Infusão", desc: "Acompanhamento remoto entre as sessões de tratamento." },
-                { title: "Profissionais da Saúde", desc: "Dados estruturados para melhores decisões clínicas." },
+                { title: "Pacientes e Familiares", desc: "Suporte contínuo e navegação para reduzir a ansiedade e organizar a jornada.", icon: Users },
+                { title: "Clínicas Oncológicas", desc: "Otimização de processos e melhoria do desfecho clínico dos pacientes.", icon: Activity },
+                { title: "Hospitais", desc: "Redução de reinternações e gestão eficiente de sintomas pós-alta.", icon: Shield },
+                { title: "Centros de Infusão", desc: "Acompanhamento remoto entre as sessões de tratamento.", icon: Calendar },
+                { title: "Profissionais da Saúde", desc: "Dados estruturados para melhores decisões clínicas.", icon: Stethoscope },
+                { title: "Ecossistema de Saúde", desc: "Soluções completas para operadoras e gestores de saúde oncológica.", icon: Layout },
               ].map((item, idx) => (
                 <motion.div
                   key={idx}
                   {...fadeInUp}
-                  className="rounded-2xl bg-white p-8 shadow-sm transition-all hover:shadow-md flex flex-col items-center text-center"
+                  className="group rounded-[2rem] bg-white p-10 shadow-lg shadow-slate-200/50 transition-all hover:shadow-2xl hover:-translate-y-2 flex flex-col items-center text-center border border-slate-50"
                 >
-                  <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-primary/5 text-primary">
-                    <Users className="h-6 w-6" />
+                  <div className="mb-8 flex h-20 w-20 items-center justify-center rounded-3xl bg-primary/5 text-primary group-hover:bg-primary group-hover:text-white transition-all duration-300 shadow-inner">
+                    <item.icon className="h-10 w-10" />
                   </div>
-                  <h3 className="text-xl font-bold">{item.title}</h3>
-                  <p className="mt-3 text-muted-foreground mb-6">{item.desc}</p>
+                  <h3 className="text-2xl font-bold mb-4">{item.title}</h3>
+                  <p className="text-muted-foreground leading-relaxed text-lg mb-8">{item.desc}</p>
                   <Button 
                     variant="outline" 
-                    className="border-primary/20 text-primary hover:bg-primary/5 rounded-xl w-full font-bold"
+                    className="rounded-full border-primary/20 text-primary font-bold hover:bg-primary hover:text-white transition-colors w-full py-6 text-lg"
                     onClick={() => window.open(whatsappLink, "_blank")}
                   >
-                    Agendar para meu perfil
+                    Saber mais
                   </Button>
                 </motion.div>
               ))}
@@ -430,13 +431,48 @@ function LandingPage() {
           </div>
         </section>
 
-        {/* Nossa Equipe Section */}
-        <section className="py-20 lg:py-32">
+        {/* Nossa Equipe Section - Refatorada */}
+        <section className="py-24 lg:py-36 bg-white relative">
           <div className="container mx-auto px-4 lg:px-8">
-            <div className="mb-16 text-center">
-              <h2 className="text-3xl font-bold text-foreground md:text-4xl">Nossa Equipe</h2>
-              <p className="mt-4 text-muted-foreground">Especialistas dedicados ao seu cuidado</p>
+            <div className="mb-20 text-center max-w-3xl mx-auto">
+              <Badge className="bg-accent/10 text-accent border-accent/20 mb-4 px-6 py-1">Especialistas</Badge>
+              <h2 className="text-4xl font-extrabold text-foreground md:text-5xl">Corpo Clínico Especializado</h2>
+              <p className="mt-6 text-xl text-muted-foreground">
+                Conheça os profissionais dedicados que caminham ao seu lado, combinando alta tecnologia e profundo acolhimento humano.
+              </p>
             </div>
+            <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-3">
+              {[
+                { name: "Dra. Ana Silva", role: "Navegadora Oncológica", desc: "Especialista em gestão de sintomas e suporte emocional com 10+ anos de experiência.", img: "https://images.unsplash.com/photo-1559839734-2b71f1536b8e?auto=format&fit=crop&q=80&w=400" },
+                { name: "Dr. Roberto Santos", role: "Coordenação Médica", desc: "Expert em tecnologia aplicada ao cuidado remoto e oncologia de precisão.", img: "https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&q=80&w=400" },
+                { name: "Enf. Carla Oliveira", role: "Educação em Saúde", desc: "Focada em empoderar pacientes através do conhecimento e protocolos digitais.", img: "https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&fit=crop&q=80&w=400" },
+              ].map((member, idx) => (
+                <motion.div
+                  key={idx}
+                  {...fadeInUp}
+                  className="group relative overflow-hidden rounded-[2.5rem] bg-slate-50 shadow-xl transition-all hover:shadow-2xl flex flex-col items-center"
+                >
+                  <div className="aspect-[4/5] w-full overflow-hidden relative">
+                    <img src={member.img} alt={member.name} className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                  </div>
+                  <div className="p-10 text-center flex flex-col items-center bg-white w-full -mt-12 relative z-10 rounded-[2.5rem] shadow-2xl">
+                    <Badge className="bg-primary/10 text-primary border-none mb-4">{member.role}</Badge>
+                    <h3 className="text-2xl font-bold mb-3">{member.name}</h3>
+                    <p className="text-muted-foreground leading-relaxed mb-8">{member.desc}</p>
+                    <Button 
+                      variant="outline" 
+                      className="rounded-full border-primary/20 text-primary hover:bg-primary hover:text-white transition-all font-bold w-full py-6"
+                      onClick={() => window.open(whatsappLink, "_blank")}
+                    >
+                      Agendar Consulta
+                    </Button>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
             <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
               {[
                 { name: "Dra. Ana Silva", role: "Navegadora Oncológica", desc: "Especialista em gestão de sintomas e suporte emocional." },
