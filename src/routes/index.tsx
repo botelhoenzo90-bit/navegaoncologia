@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { MessageSquare, Menu, X, ChevronRight, CheckCircle2, Heart, Shield, Calendar, Activity, Users, ArrowRight, Star, Plus } from "lucide-react";
+import { MessageSquare, Menu, X, ChevronRight, CheckCircle2, Heart, Shield, Calendar, Activity, Users, ArrowRight, Star, Plus, Stethoscope, Search, Layers, FileText, Layout } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import {
