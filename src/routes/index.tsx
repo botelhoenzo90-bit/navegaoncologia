@@ -417,13 +417,20 @@ function LandingPage() {
                 <motion.div
                   key={idx}
                   {...fadeInUp}
-                  className="overflow-hidden rounded-3xl bg-white shadow-lg shadow-slate-200/50"
+                  className="overflow-hidden rounded-3xl bg-white shadow-lg shadow-slate-200/50 flex flex-col items-center"
                 >
-                  <div className="aspect-[4/3] bg-slate-200" />
-                  <div className="p-8 text-center">
+                  <div className="aspect-[4/3] w-full bg-slate-200" />
+                  <div className="p-8 text-center flex flex-col items-center">
                     <h3 className="text-xl font-bold">{member.name}</h3>
-                    <p className="text-sm font-medium text-primary uppercase tracking-wider">{member.role}</p>
-                    <p className="mt-4 text-muted-foreground">{member.desc}</p>
+                    <p className="text-sm font-medium text-primary uppercase tracking-wider mb-4">{member.role}</p>
+                    <p className="mt-4 text-muted-foreground mb-6">{member.desc}</p>
+                    <Button 
+                      variant="outline" 
+                      className="border-primary/20 text-primary hover:bg-primary/5 rounded-xl font-bold"
+                      onClick={() => window.open(whatsappLink, "_blank")}
+                    >
+                      Consultar com {member.name.split(' ')[0]}
+                    </Button>
                   </div>
                 </motion.div>
               ))}
