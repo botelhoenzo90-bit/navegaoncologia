@@ -201,32 +201,39 @@ function LandingPage() {
           </div>
         </section>
 
-        {/* Problemas Section */}
-        <section className="py-20 lg:py-32">
+        {/* Problemas Section - Refatorada */}
+        <section className="py-24 lg:py-36 bg-white relative overflow-hidden">
+          <div className="absolute top-0 right-0 w-1/3 h-full bg-slate-50/50 -z-10 skew-x-12 transform translate-x-20" />
           <div className="container mx-auto px-4 lg:px-8">
-            <div className="text-center">
-              <h2 className="text-3xl font-bold text-foreground">O que resolvemos</h2>
-              <p className="mt-4 text-muted-foreground">Superando os desafios do tratamento oncológico</p>
+            <div className="text-center max-w-3xl mx-auto mb-20">
+              <Badge className="bg-destructive/10 text-destructive border-destructive/20 mb-4 px-4 py-1">Desafios Comuns</Badge>
+              <h2 className="text-4xl font-extrabold text-foreground md:text-5xl leading-tight">O Que Resolvemos</h2>
+              <p className="mt-6 text-xl text-muted-foreground">
+                Entendemos as dores da jornada oncológica e criamos soluções para superar cada obstáculo no seu caminho.
+              </p>
             </div>
 
-            <div className="mt-16 grid gap-6 md:grid-cols-3 lg:grid-cols-5">
+            <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
               {[
-                "Falta de orientação",
-                "Ansiedade pós-diagnóstico",
-                "Dificuldade de acesso",
-                "Informações desencontradas",
-                "Falta de acompanhamento"
-              ].map((prob, idx) => (
+                { title: "Falta de orientação", icon: Search, desc: "Eliminamos a sensação de estar perdido no sistema de saúde." },
+                { title: "Ansiedade pós-diagnóstico", icon: Heart, desc: "Apoio emocional e técnico imediato nos momentos mais difíceis." },
+                { title: "Dificuldade de acesso", icon: Layout, desc: "Facilitamos a conexão com os serviços e profissionais necessários." },
+                { title: "Informações desencontradas", icon: FileText, desc: "Centralizamos e organizamos todos os dados do seu tratamento." },
+                { title: "Falta de acompanhamento", icon: Activity, desc: "Monitoramento contínuo, não apenas no dia da consulta." },
+                { title: "Insegurança Familiar", icon: Shield, desc: "Damos suporte e clareza para que a família saiba como ajudar." }
+              ].map((item, idx) => (
                 <motion.div
                   key={idx}
                   {...fadeInUp}
                   transition={{ delay: idx * 0.1 }}
-                  className="rounded-2xl border border-destructive/10 bg-destructive/[0.02] p-6 text-center"
+                  className="relative group rounded-[2rem] border border-slate-100 bg-white p-10 shadow-xl shadow-slate-200/40 hover:shadow-2xl hover:shadow-primary/5 transition-all duration-300 overflow-hidden"
                 >
-                  <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-white shadow-sm">
-                    <X className="h-6 w-6 text-destructive" />
+                  <div className="absolute top-0 right-0 w-24 h-24 bg-primary/5 rounded-bl-[4rem] group-hover:bg-primary/10 transition-colors" />
+                  <div className="mb-8 flex h-16 w-16 items-center justify-center rounded-2xl bg-destructive/10 text-destructive group-hover:scale-110 transition-transform shadow-inner">
+                    <item.icon className="h-8 w-8" />
                   </div>
-                  <p className="font-semibold text-foreground">{prob}</p>
+                  <h3 className="text-2xl font-bold text-foreground mb-4">{item.title}</h3>
+                  <p className="text-muted-foreground leading-relaxed text-lg">{item.desc}</p>
                 </motion.div>
               ))}
             </div>
