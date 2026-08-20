@@ -21,6 +21,16 @@ import { Badge } from "@/components/ui/badge";
 
 export const Route = createFileRoute("/")({
   component: LandingPage,
+  head: () => ({
+    meta: [
+      { title: "Navega Onco | Tecnologia e Cuidado Oncológico" },
+      { name: "description", content: "Acompanhamento humanizado, navegação oncológica e telemonitoramento para trazer mais segurança durante todo o tratamento do câncer." },
+      { property: "og:title", content: "Navega Onco | Tecnologia e Cuidado Oncológico" },
+      { property: "og:description", content: "Acompanhamento humanizado e tecnologia para pacientes oncológicos." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+  }),
 });
 
 function LandingPage() {
