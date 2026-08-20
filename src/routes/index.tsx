@@ -335,6 +335,80 @@ function LandingPage() {
           </div>
         </section>
 
+        {/* Como Funciona Section */}
+        <section id="como-funciona" className="py-20 lg:py-32">
+          <div className="container mx-auto px-4 lg:px-8">
+            <div className="mb-16 text-center">
+              <h2 className="text-3xl font-bold text-foreground md:text-4xl">Como Funciona</h2>
+              <p className="mt-4 text-muted-foreground">Um processo estruturado para o seu bem-estar</p>
+            </div>
+            <div className="relative">
+              <div className="absolute top-1/2 left-0 hidden h-0.5 w-full -translate-y-1/2 bg-primary/20 lg:block" />
+              <div className="grid gap-8 lg:grid-cols-5">
+                {[
+                  { title: "Primeiro contato", desc: "Conexão inicial para entender sua necessidade." },
+                  { title: "Avaliação inicial", desc: "Análise profunda do seu histórico e momento." },
+                  { title: "Plano individualizado", desc: "Construção da sua rota de navegação." },
+                  { title: "Acompanhamento", desc: "Monitoramento contínuo e suporte 24/7." },
+                  { title: "Orientações", desc: "Suporte durante todo o tratamento." },
+                ].map((step, idx) => (
+                  <motion.div
+                    key={idx}
+                    {...fadeInUp}
+                    transition={{ delay: idx * 0.1 }}
+                    className="relative flex flex-col items-center text-center"
+                  >
+                    <div className="z-10 mb-6 flex h-12 w-12 items-center justify-center rounded-full bg-primary text-xl font-bold text-white shadow-lg shadow-primary/30">
+                      {idx + 1}
+                    </div>
+                    <h3 className="text-lg font-bold">{step.title}</h3>
+                    <p className="mt-2 text-sm text-muted-foreground">{step.desc}</p>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Serviços Premium Section */}
+        <section className="bg-slate-900 py-20 text-white lg:py-32">
+          <div className="container mx-auto px-4 lg:px-8">
+            <div className="mb-16 text-center">
+              <h2 className="text-3xl font-bold md:text-4xl">Serviços Premium</h2>
+              <p className="mt-4 text-white/60">Soluções avançadas para pacientes e instituições</p>
+            </div>
+            <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+              {[
+                { title: "Navegação Oncológica", items: ["Plano individualizado", "Monitoramento ativo", "Educação do paciente"] },
+                { title: "Telemonitoramento Inteligente", items: ["Dor e Náuseas", "Febre e Fadiga", "Sintomas do tratamento"] },
+                { title: "Consultoria Institucional", items: ["Implantação de navegação", "Protocolos digitais", "Capacitação de equipe"] },
+              ].map((service, idx) => (
+                <motion.div
+                  key={idx}
+                  whileHover={{ y: -10 }}
+                  className="rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-sm"
+                >
+                  <h3 className="text-2xl font-bold text-primary">{service.title}</h3>
+                  <ul className="mt-6 space-y-4">
+                    {service.items.map((item, i) => (
+                      <li key={i} className="flex items-center gap-3 text-white/80">
+                        <CheckCircle2 className="h-5 w-5 text-primary" />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                  <Button 
+                    className="mt-8 w-full rounded-xl bg-primary hover:bg-primary/90"
+                    onClick={() => window.open(whatsappLink, "_blank")}
+                  >
+                    Saiba Mais
+                  </Button>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* Para Quem é Section */}
         <section id="para-quem" className="bg-slate-50 py-20 lg:py-32">
           <div className="container mx-auto px-4 lg:px-8">
