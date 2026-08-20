@@ -69,7 +69,9 @@ function LandingPage() {
         <div className="container mx-auto flex items-center justify-between px-4 lg:px-8">
           <div className="flex items-center gap-2">
             <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary text-white shadow-lg shadow-primary/20">
-              <Activity className="h-6 w-6" />
+              <img src="/logo.png" alt="Navega Onco" className="h-8 w-auto" onError={(e) => e.currentTarget.style.display = 'none'} />
+              <Activity className="h-6 w-6" id="fallback-icon" />
+
             </div>
             <span className="text-2xl font-bold tracking-tight text-primary">Navega Onco</span>
           </div>
@@ -603,7 +605,8 @@ function LandingPage() {
         <div className="container mx-auto px-4 lg:px-8">
           <div className="flex flex-col items-center justify-between gap-8 md:flex-row">
             <div className="flex items-center gap-2">
-              <Activity className="h-6 w-6 text-primary" />
+              <img src="/logo.png" alt="Navega Onco" className="h-6 w-auto" onError={(e) => e.currentTarget.style.display = 'none'} />
+              <Activity className="h-5 w-5 text-primary" />
               <span className="text-xl font-bold text-primary">Navega Onco</span>
             </div>
             <p className="text-sm text-muted-foreground">
