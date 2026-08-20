@@ -67,7 +67,7 @@ function LandingPage() {
 
       <main>
         {/* Hero Section */}
-        <section className="relative overflow-hidden pt-20 pb-20 lg:pt-32 lg:pb-32">
+        <section className="relative overflow-hidden pt-8 pb-20 lg:pt-12 lg:pb-32">
           <div className="absolute top-0 right-0 -z-10 h-[600px] w-[600px] rounded-full bg-primary/5 blur-3xl" />
           <div className="absolute -bottom-20 -left-20 -z-10 h-[400px] w-[400px] rounded-full bg-accent/10 blur-3xl" />
           
@@ -114,13 +114,28 @@ function LandingPage() {
                     Conheça nossa solução
                   </Button>
                 </div>
-                <div className="mt-8 flex flex-col items-center gap-4 text-sm text-muted-foreground">
-                  <div className="flex -space-x-2">
-                    {[1, 2, 3].map((i) => (
-                      <div key={i} className="h-10 w-10 rounded-full border-2 border-white bg-slate-200" />
+                <div className="mt-12 flex flex-col items-center gap-6">
+                  <div className="flex -space-x-4">
+                    {[
+                      "https://images.unsplash.com/photo-1551601651-2a8555f1a136?auto=format&fit=crop&q=80&w=150",
+                      "https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&q=80&w=150",
+                      "https://images.unsplash.com/photo-1559839734-2b71f1536b8e?auto=format&fit=crop&q=80&w=150",
+                      "https://images.unsplash.com/photo-1582750433449-648ed127bb54?auto=format&fit=crop&q=80&w=150"
+                    ].map((url, i) => (
+                      <motion.div 
+                        key={i} 
+                        initial={{ opacity: 0, scale: 0.5 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ delay: i * 0.1 }}
+                        className="h-16 w-16 rounded-full border-4 border-white shadow-md overflow-hidden bg-slate-200"
+                      >
+                        <img src={url} alt={`Paciente ${i+1}`} className="h-full w-full object-cover" />
+                      </motion.div>
                     ))}
                   </div>
-                  <span>Join 500+ families already navigating together</span>
+                  <p className="text-base font-medium text-slate-700">
+                    Mais de <span className="text-primary font-bold">500+ famílias</span> cuidada pela nossa plataforma no Brasil
+                  </p>
                 </div>
               </motion.div>
 
@@ -138,17 +153,7 @@ function LandingPage() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent" />
                 </div>
-                <div className="absolute -right-4 -bottom-4 z-20 w-64 rounded-2xl bg-white p-6 shadow-xl shadow-black/5 ring-1 ring-black/5 hidden md:block">
-                  <div className="flex items-center gap-4 text-left">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-full bg-accent/20 text-accent shrink-0">
-                      <Heart className="h-6 w-6" />
-                    </div>
-                    <div>
-                      <p className="text-sm font-bold">Cuidado 24/7</p>
-                      <p className="text-xs text-muted-foreground">Sempre ao seu lado</p>
-                    </div>
-                  </div>
-                </div>
+                {/* Removido o card "Cuidado 24/7 Sempre ao seu lado" conforme pedido */}
               </motion.div>
             </div>
           </div>
