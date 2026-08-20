@@ -18,6 +18,7 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import { Badge } from "@/components/ui/badge";
+import logoAsset from "@/assets/logo.asset.json";
 
 export const Route = createFileRoute("/")({
   component: LandingPage,
@@ -68,12 +69,10 @@ function LandingPage() {
       >
         <div className="container mx-auto flex items-center justify-between px-4 lg:px-8">
           <div className="flex items-center gap-2">
-            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary text-white shadow-lg shadow-primary/20">
-              <img src="/logo.png" alt="Navega Onco" className="h-8 w-auto" onError={(e) => e.currentTarget.style.display = 'none'} />
-              <Activity className="h-6 w-6" id="fallback-icon" />
-
+            <div className="flex h-12 items-center justify-center">
+              <img src={logoAsset.url} alt="Navega Onco" className="h-10 w-auto" />
             </div>
-            <span className="text-2xl font-bold tracking-tight text-primary">Navega Onco</span>
+            <span className="text-2xl font-bold tracking-tight text-primary hidden sm:block">Navega Onco</span>
           </div>
 
           <nav className="hidden items-center gap-8 md:flex">
