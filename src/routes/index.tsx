@@ -503,13 +503,20 @@ function LandingPage() {
                 <motion.div
                   key={idx}
                   {...fadeInUp}
-                  className="group cursor-pointer overflow-hidden rounded-2xl bg-white transition-all hover:-translate-y-2"
+                  className="group cursor-pointer overflow-hidden rounded-2xl bg-white transition-all hover:-translate-y-2 flex flex-col items-center text-center shadow-sm hover:shadow-md"
                 >
-                  <div className="aspect-video bg-slate-100" />
-                  <div className="p-6">
+                  <div className="aspect-video w-full bg-slate-100" />
+                  <div className="p-6 flex flex-col items-center">
                     <Badge variant="secondary" className="mb-3">{post.category}</Badge>
                     <h3 className="text-xl font-bold transition-colors group-hover:text-primary">{post.title}</h3>
-                    <p className="mt-3 text-sm text-muted-foreground">Leia mais sobre como gerenciar sua saúde e bem-estar...</p>
+                    <p className="mt-3 text-sm text-muted-foreground mb-6">Leia mais sobre como gerenciar sua saúde e bem-estar...</p>
+                    <Button 
+                      variant="link" 
+                      className="text-primary p-0 h-auto font-bold"
+                      onClick={() => window.open(whatsappLink, "_blank")}
+                    >
+                      Ler artigo no WhatsApp <ArrowRight className="ml-2 h-4 w-4" />
+                    </Button>
                   </div>
                 </motion.div>
               ))}
