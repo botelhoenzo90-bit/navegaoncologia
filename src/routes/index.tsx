@@ -163,35 +163,37 @@ function LandingPage() {
         <section id="sobre" className="bg-slate-50 py-20 lg:py-32">
           <div className="container mx-auto px-4 lg:px-8">
             <div className="mx-auto max-w-3xl text-center">
-              <h2 className="text-3xl font-bold tracking-tight text-foreground md:text-4xl">Sobre a Navega Onco</h2>
-              <p className="mt-6 text-lg leading-relaxed text-muted-foreground">
-                A Navega Onco nasceu para garantir que pacientes e familiares tenham orientação durante todas as etapas do tratamento, reduzindo dúvidas, barreiras e inseguranças.
+              <h2 className="text-4xl font-bold tracking-tight text-foreground md:text-5xl">Quem Somos Nós</h2>
+              <div className="mt-4 h-1.5 w-24 bg-primary mx-auto rounded-full" />
+              <p className="mt-8 text-lg leading-relaxed text-muted-foreground md:text-xl">
+                A Navega Onco nasceu para garantir que pacientes e familiares tenham orientação durante todas as etapas do tratamento, reduzindo dúvidas, barreiras e inseguranças através de uma abordagem humanizada e tecnológica.
               </p>
             </div>
 
             <div className="mt-16 grid gap-8 md:grid-cols-2 lg:grid-cols-4">
               {[
-                { title: "Acompanhamento contínuo", icon: Calendar },
-                { title: "Atendimento humanizado", icon: Heart },
-                { title: "Segurança nas decisões", icon: Shield },
-                { title: "Organização da jornada", icon: Activity },
+                { title: "Acompanhamento contínuo", icon: Calendar, desc: "Monitoramento constante em todas as fases da sua jornada." },
+                { title: "Atendimento humanizado", icon: Heart, desc: "Cuidado centrado no paciente com empatia e acolhimento." },
+                { title: "Segurança nas decisões", icon: Shield, desc: "Informações confiáveis para você e sua família decidirem com clareza." },
+                { title: "Organização da jornada", icon: Activity, desc: "Gestão completa de consultas, exames e etapas do tratamento." },
               ].map((item, idx) => (
                 <motion.div
                   key={idx}
                   {...fadeInUp}
                   transition={{ delay: idx * 0.1 }}
-                  className="group rounded-3xl bg-white p-8 shadow-sm ring-1 ring-slate-100 transition-all hover:shadow-md flex flex-col items-center text-center"
+                  className="group rounded-3xl bg-white p-8 shadow-md ring-1 ring-slate-100 transition-all hover:shadow-xl flex flex-col items-center text-center"
                 >
-                  <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/10 text-primary transition-transform group-hover:scale-110">
-                    <item.icon className="h-7 w-7" />
+                  <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-2xl bg-primary/10 text-primary transition-transform group-hover:scale-110 shadow-inner">
+                    <item.icon className="h-8 w-8" />
                   </div>
-                  <h3 className="text-xl font-bold text-foreground mb-4">{item.title}</h3>
+                  <h3 className="text-xl font-bold text-foreground mb-3">{item.title}</h3>
+                  <p className="text-muted-foreground mb-6 text-sm">{item.desc}</p>
                   <Button 
-                    variant="link" 
-                    className="text-primary p-0 h-auto font-bold"
+                    variant="outline" 
+                    className="rounded-full border-primary/20 text-primary font-bold hover:bg-primary hover:text-white transition-colors w-full"
                     onClick={() => window.open(whatsappLink, "_blank")}
                   >
-                    Saiba mais <ArrowRight className="ml-2 h-4 w-4" />
+                    Falar agora
                   </Button>
                 </motion.div>
               ))}
