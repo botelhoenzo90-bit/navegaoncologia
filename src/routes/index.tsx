@@ -167,7 +167,7 @@ function LandingPage() {
               <h2 className="text-4xl font-bold tracking-tight text-foreground md:text-5xl">Quem Somos Nós</h2>
               <div className="mt-4 h-1.5 w-24 bg-primary mx-auto rounded-full" />
               <p className="mt-8 text-lg leading-relaxed text-muted-foreground md:text-xl">
-                A Navega Onco nasceu para garantir que pacientes e familiares tenham orientação durante todas as etapas do tratamento, reduzindo dúvidas, barreiras e inseguranças através de uma abordagem humanizada e tecnológica.
+                A Navega Onco é um <strong>consultório de enfermagem digital</strong> especializado em transformar a jornada do paciente com câncer em um processo mais organizado, seguro e humanizado, oferecendo acompanhamento contínuo desde o diagnóstico até o pós-tratamento.
               </p>
             </div>
 
