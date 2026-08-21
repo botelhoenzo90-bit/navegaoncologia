@@ -437,10 +437,10 @@ function LandingPage() {
                     {[
                       { title: "Pacientes e Familiares", desc: "Suporte contínuo e navegação para reduzir a ansiedade.", icon: Users },
                       { title: "Clínicas Oncológicas", desc: "Otimização de processos e melhoria do desfecho clínico.", icon: Activity },
-                      { title: "Hospitais", desc: "Redução de reinternações e gestão eficiente pós-alta.", icon: Shield },
-                      { title: "Centros de Infusão", desc: "Acompanhamento remoto entre as sessões de tratamento.", icon: Calendar },
-                      { title: "Profissionais da Saúde", desc: "Dados estruturados para melhores decisões clínicas.", icon: Stethoscope },
-                      { title: "Ecossistema de Saúde", desc: "Soluções completas para operadoras e gestores.", icon: Layout },
+                      { title: "Hospitais e Infusão", desc: "Redução de reinternações e gestão pós-alta eficiente.", icon: Shield },
+                      { title: "Home Care & Operadoras", desc: "Acompanhamento remoto e segurança para gestores de saúde.", icon: Calendar },
+                      { title: "Profissionais da Saúde", desc: "Dados estruturados e IA para melhores decisões clínicas.", icon: Stethoscope },
+                      { title: "Empresas do Setor", desc: "Soluções completas de saúde digital e consultoria especializada.", icon: Layout },
                     ].map((item, idx) => (
                       <div
                         key={idx}
