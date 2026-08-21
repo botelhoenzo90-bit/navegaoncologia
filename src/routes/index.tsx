@@ -64,7 +64,7 @@ function LandingPage() {
   };
 
   return (
-    <div className="flex min-h-screen flex-col bg-background text-foreground font-sans">
+    <div className="flex min-h-screen flex-col bg-background text-foreground font-sans overflow-x-hidden">
 
       <main>
         {/* Hero Section */}
