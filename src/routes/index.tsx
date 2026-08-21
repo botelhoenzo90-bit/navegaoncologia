@@ -322,7 +322,7 @@ function LandingPage() {
         </section>
 
         {/* Como Funciona Section */}
-        <section id="como-funciona" className="py-20 lg:py-32">
+        <section id="como-funciona" className="py-12 lg:py-20">
           <div className="container mx-auto px-4 lg:px-8">
             <div className="mb-16 text-center">
               <h2 className="text-3xl font-bold text-foreground md:text-4xl">Como Funciona</h2>
