@@ -254,7 +254,7 @@ function LandingPage() {
         </section>
 
         {/* Solução & Serviços */}
-        <section id="serviços" className="bg-primary py-20 text-white lg:py-32">
+        <section id="serviços" className="bg-primary py-16 text-white lg:py-24">
           <div className="container mx-auto px-4 lg:px-8 text-center">
             <div className="max-w-4xl mx-auto flex flex-col items-center">
               <h2 className="text-3xl font-bold md:text-4xl lg:text-5xl">
