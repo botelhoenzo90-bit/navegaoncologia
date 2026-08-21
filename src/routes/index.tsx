@@ -366,7 +366,7 @@ function LandingPage() {
         </section>
 
         {/* Serviços Premium Section - Refatorada */}
-        <section className="bg-slate-950 py-24 text-white lg:py-36 relative overflow-hidden">
+        <section className="bg-slate-950 py-16 text-white lg:py-24 relative overflow-hidden">
           <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_30%_30%,rgba(124,58,237,0.1),transparent)]" />
           <div className="container mx-auto px-4 lg:px-8 relative z-10">
             <div className="mb-20 text-center max-w-3xl mx-auto">
