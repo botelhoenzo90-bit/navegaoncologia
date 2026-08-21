@@ -584,7 +584,7 @@ function LandingPage() {
         </section>
 
         {/* FAQ Section - Refatorada */}
-        <section id="faq" className="py-24 lg:py-36 bg-slate-50">
+        <section id="faq" className="py-16 lg:py-24 bg-slate-50">
           <div className="container mx-auto max-w-4xl px-4 lg:px-8">
             <div className="mb-20 text-center">
               <Badge className="bg-primary/10 text-primary border-none mb-4 px-6 py-1">Dúvidas</Badge>
