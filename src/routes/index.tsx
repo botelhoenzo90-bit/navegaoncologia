@@ -68,9 +68,9 @@ function LandingPage() {
 
       <main>
         {/* Hero Section */}
-        <section className="relative overflow-hidden pt-8 pb-20 lg:pt-12 lg:pb-32">
-          <div className="absolute top-0 right-0 -z-10 h-[600px] w-[600px] rounded-full bg-primary/5 blur-3xl" />
-          <div className="absolute -bottom-20 -left-20 -z-10 h-[400px] w-[400px] rounded-full bg-accent/10 blur-3xl" />
+        <section className="relative overflow-hidden pt-4 pb-12 lg:pt-8 lg:pb-20">
+          <div className="absolute top-0 right-0 -z-10 h-[400px] w-[400px] rounded-full bg-primary/5 blur-3xl" />
+          <div className="absolute -bottom-20 -left-20 -z-10 h-[300px] w-[300px] rounded-full bg-accent/10 blur-3xl" />
           
           <div className="container mx-auto px-4 lg:px-8">
             <div className="flex flex-col items-center text-center">
