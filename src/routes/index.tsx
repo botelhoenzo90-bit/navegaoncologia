@@ -167,7 +167,7 @@ function LandingPage() {
               <h2 className="text-4xl font-bold tracking-tight text-foreground md:text-5xl">Quem Somos Nós</h2>
               <div className="mt-4 h-1.5 w-24 bg-primary mx-auto rounded-full" />
               <p className="mt-8 text-lg leading-relaxed text-muted-foreground md:text-xl">
-                A Navega Onco nasceu para garantir que pacientes e familiares tenham orientação durante todas as etapas do tratamento, reduzindo dúvidas, barreiras e inseguranças através de uma abordagem humanizada e tecnológica.
+                A Navega Onco é um <strong>consultório de enfermagem digital</strong> especializado em transformar a jornada do paciente com câncer em um processo mais organizado, seguro e humanizado, oferecendo acompanhamento contínuo desde o diagnóstico até o pós-tratamento.
               </p>
             </div>
 
@@ -265,12 +265,12 @@ function LandingPage() {
               </p>
               <div className="mt-12 grid gap-6 sm:grid-cols-2 md:grid-cols-3 w-full">
                 {[
-                  "Navegação Oncológica",
-                  "Telemonitoramento",
-                  "Enfermagem Online",
-                  "Educação em Saúde",
-                  "Gestão de Sintomas",
-                  "Acompanhamento Familiar"
+                  "Consulta de Enfermagem Online",
+                  "Navegação Oncológica Completa",
+                  "Telemonitoramento Inteligente",
+                  "Educação em Saúde (Cursos)",
+                  "Gestão de Sintomas com IA",
+                  "Acompanhamento Familiar & Alta"
                 ].map((service, idx) => (
                   <div key={idx} className="flex items-center justify-center gap-3 bg-white/10 rounded-xl p-4">
                     <div className="flex h-8 w-8 items-center justify-center rounded-full bg-white/20 shrink-0">
@@ -292,8 +292,8 @@ function LandingPage() {
             
             <div className="mt-20 grid gap-8 sm:grid-cols-2 max-w-4xl mx-auto">
               {[
-                { title: "Telemonitoramento", desc: "Monitoramento constante de dor, náuseas e outros sintomas.", icon: Activity },
-                { title: "Protocolos Digitais", desc: "Automação e organização para clínicas e hospitais.", icon: Shield },
+                { title: "Telemonitoramento Inteligente", desc: "Monitoramento constante de dor, náuseas, febre, adesão medicamentosa e risco clínico.", icon: Activity },
+                { title: "Navegação & IA", desc: "Protocolos digitais e Inteligência Artificial aplicada ao cuidado e automação.", icon: Shield },
               ].map((card, idx) => (
                 <motion.div
                   key={idx}
@@ -389,9 +389,9 @@ function LandingPage() {
                 {[...Array(2)].map((_, i) => (
                   <div key={i} className="flex gap-8">
                     {[
-                      { title: "Navegação Oncológica", items: ["Plano individualizado", "Monitoramento ativo", "Educação do paciente"] },
-                      { title: "Telemonitoramento Inteligente", items: ["Dor e Náuseas", "Febre e Fadiga", "Sintomas do tratamento"] },
-                      { title: "Consultoria Institucional", items: ["Implantação de navegação", "Protocolos digitais", "Capacitação de equipe"] },
+                      { title: "Navegação Oncológica", items: ["Plano individualizado", "Acompanhamento Quimio/Radio", "Alta estruturada"] },
+                      { title: "Telemonitoramento IA", items: ["Sinais vitais e fadiga", "Estado nutricional", "Adesão medicamentosa"] },
+                      { title: "Consultoria Institucional", items: ["Indicadores de qualidade", "IA e Automação", "Capacitação de equipes"] },
                     ].map((service, idx) => (
                       <div
                         key={idx}
@@ -437,10 +437,10 @@ function LandingPage() {
                     {[
                       { title: "Pacientes e Familiares", desc: "Suporte contínuo e navegação para reduzir a ansiedade.", icon: Users },
                       { title: "Clínicas Oncológicas", desc: "Otimização de processos e melhoria do desfecho clínico.", icon: Activity },
-                      { title: "Hospitais", desc: "Redução de reinternações e gestão eficiente pós-alta.", icon: Shield },
-                      { title: "Centros de Infusão", desc: "Acompanhamento remoto entre as sessões de tratamento.", icon: Calendar },
-                      { title: "Profissionais da Saúde", desc: "Dados estruturados para melhores decisões clínicas.", icon: Stethoscope },
-                      { title: "Ecossistema de Saúde", desc: "Soluções completas para operadoras e gestores.", icon: Layout },
+                      { title: "Hospitais e Infusão", desc: "Redução de reinternações e gestão pós-alta eficiente.", icon: Shield },
+                      { title: "Home Care & Operadoras", desc: "Acompanhamento remoto e segurança para gestores de saúde.", icon: Calendar },
+                      { title: "Profissionais da Saúde", desc: "Dados estruturados e IA para melhores decisões clínicas.", icon: Stethoscope },
+                      { title: "Empresas do Setor", desc: "Soluções completas de saúde digital e consultoria especializada.", icon: Layout },
                     ].map((item, idx) => (
                       <div
                         key={idx}
