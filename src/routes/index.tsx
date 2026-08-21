@@ -527,7 +527,8 @@ function LandingPage() {
             <motion.div 
               animate={{ x: ["0%", "-50%"] }}
               transition={{ 
-                duration: 25, 
+                duration: 15, 
+
                 repeat: Infinity, 
                 ease: "linear" 
               }}
