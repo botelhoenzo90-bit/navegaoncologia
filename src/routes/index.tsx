@@ -459,8 +459,8 @@ function LandingPage() {
             </div>
             <div className="mt-16 flex justify-center">
               <Button 
-                size="lg" 
-                className="rounded-full bg-primary px-10 text-lg font-bold shadow-lg shadow-primary/20 hover:scale-105 transition-transform"
+                size="default" 
+                className="rounded-2xl bg-primary px-8 text-base font-bold shadow-lg shadow-primary/20 hover:scale-105 transition-transform"
                 onClick={() => window.open(whatsappLink, "_blank")}
               >
                 Entrar em contato com nossa equipe
