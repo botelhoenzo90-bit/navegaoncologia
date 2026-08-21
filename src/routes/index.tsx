@@ -161,7 +161,7 @@ function LandingPage() {
         </section>
 
         {/* Sobre Section */}
-        <section id="sobre" className="bg-slate-50 py-20 lg:py-32">
+        <section id="sobre" className="bg-slate-50 py-12 lg:py-20">
           <div className="container mx-auto px-4 lg:px-8">
             <div className="mx-auto max-w-3xl text-center">
               <h2 className="text-4xl font-bold tracking-tight text-foreground md:text-5xl">Quem Somos Nós</h2>
