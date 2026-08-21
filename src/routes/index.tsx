@@ -563,7 +563,7 @@ function LandingPage() {
         </section>
 
         {/* Patrocinadores Section (Substituindo Blog/Conteúdo) */}
-        <section className="py-24 bg-white border-y border-slate-100">
+        <section className="py-16 bg-white border-y border-slate-100">
           <div className="container mx-auto px-4 lg:px-8">
             <div className="mb-16 text-center max-w-3xl mx-auto">
               <Badge className="bg-slate-100 text-slate-500 border-none mb-4 px-6 py-1">Nossa Rede</Badge>
