@@ -512,7 +512,7 @@ function LandingPage() {
           </div>
         </section>
         {/* Depoimentos Section - Esteira Infinita */}
-        <section className="bg-slate-50 py-24 lg:py-36 overflow-hidden">
+        <section className="bg-slate-50 py-16 lg:py-24 overflow-hidden">
           <div className="container mx-auto px-4 lg:px-8 mb-16">
             <div className="text-center max-w-3xl mx-auto">
               <Badge className="bg-primary/10 text-primary border-primary/20 mb-4 px-6 py-1">Depoimentos</Badge>
