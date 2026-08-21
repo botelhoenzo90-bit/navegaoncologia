@@ -68,9 +68,9 @@ function LandingPage() {
 
       <main>
         {/* Hero Section */}
-        <section className="relative overflow-hidden pt-8 pb-20 lg:pt-12 lg:pb-32">
-          <div className="absolute top-0 right-0 -z-10 h-[600px] w-[600px] rounded-full bg-primary/5 blur-3xl" />
-          <div className="absolute -bottom-20 -left-20 -z-10 h-[400px] w-[400px] rounded-full bg-accent/10 blur-3xl" />
+        <section className="relative overflow-hidden pt-4 pb-12 lg:pt-8 lg:pb-20">
+          <div className="absolute top-0 right-0 -z-10 h-[400px] w-[400px] rounded-full bg-primary/5 blur-3xl" />
+          <div className="absolute -bottom-20 -left-20 -z-10 h-[300px] w-[300px] rounded-full bg-accent/10 blur-3xl" />
           
           <div className="container mx-auto px-4 lg:px-8">
             <div className="flex flex-col items-center text-center">
@@ -120,7 +120,7 @@ function LandingPage() {
                     {[
                       "https://images.unsplash.com/photo-1551601651-2a8555f1a136?auto=format&fit=crop&q=80&w=150",
                       "https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&q=80&w=150",
-                      "https://images.unsplash.com/photo-1559839734-2b71f1536b8e?auto=format&fit=crop&q=80&w=150",
+                      "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&q=80&w=150",
                       "https://images.unsplash.com/photo-1516574187841-cb9cc2ca948b?auto=format&fit=crop&q=80&w=150"
                     ].map((url, i) => (
                       <motion.div 
@@ -161,7 +161,7 @@ function LandingPage() {
         </section>
 
         {/* Sobre Section */}
-        <section id="sobre" className="bg-slate-50 py-20 lg:py-32">
+        <section id="sobre" className="bg-slate-50 py-12 lg:py-20">
           <div className="container mx-auto px-4 lg:px-8">
             <div className="mx-auto max-w-3xl text-center">
               <h2 className="text-4xl font-bold tracking-tight text-foreground md:text-5xl">Quem Somos Nós</h2>
@@ -205,7 +205,7 @@ function LandingPage() {
         </section>
 
         {/* Problemas Section - Refatorada */}
-        <section className="py-24 lg:py-36 bg-white relative overflow-hidden">
+        <section className="py-16 lg:py-24 bg-white relative overflow-hidden">
           <div className="absolute top-0 right-0 w-1/3 h-full bg-slate-50/50 -z-10 skew-x-12 transform translate-x-20" />
           <div className="container mx-auto px-4 lg:px-8">
             <div className="text-center max-w-3xl mx-auto mb-20">
@@ -254,7 +254,7 @@ function LandingPage() {
         </section>
 
         {/* Solução & Serviços */}
-        <section id="serviços" className="bg-primary py-20 text-white lg:py-32">
+        <section id="serviços" className="bg-primary py-16 text-white lg:py-24">
           <div className="container mx-auto px-4 lg:px-8 text-center">
             <div className="max-w-4xl mx-auto flex flex-col items-center">
               <h2 className="text-3xl font-bold md:text-4xl lg:text-5xl">
@@ -322,7 +322,7 @@ function LandingPage() {
         </section>
 
         {/* Como Funciona Section */}
-        <section id="como-funciona" className="py-20 lg:py-32">
+        <section id="como-funciona" className="py-12 lg:py-20">
           <div className="container mx-auto px-4 lg:px-8">
             <div className="mb-16 text-center">
               <h2 className="text-3xl font-bold text-foreground md:text-4xl">Como Funciona</h2>
@@ -366,7 +366,7 @@ function LandingPage() {
         </section>
 
         {/* Serviços Premium Section - Refatorada */}
-        <section className="bg-slate-950 py-24 text-white lg:py-36 relative overflow-hidden">
+        <section className="bg-slate-950 py-16 text-white lg:py-24 relative overflow-hidden">
           <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_30%_30%,rgba(124,58,237,0.1),transparent)]" />
           <div className="container mx-auto px-4 lg:px-8 relative z-10">
             <div className="mb-20 text-center max-w-3xl mx-auto">
@@ -416,7 +416,7 @@ function LandingPage() {
         </section>
 
         {/* Para Quem é Section */}
-        <section id="para-quem" className="bg-slate-50 py-20 lg:py-32">
+        <section id="para-quem" className="bg-slate-50 py-12 lg:py-20">
           <div className="container mx-auto px-4 lg:px-8">
             <div className="mb-16 text-center">
               <h2 className="text-3xl font-bold text-foreground md:text-4xl">Para quem é a Navega Onco?</h2>
@@ -470,7 +470,7 @@ function LandingPage() {
         </section>
 
         {/* Nossa Equipe Section - Refatorada */}
-        <section className="py-24 lg:py-36 bg-white relative">
+        <section className="py-16 lg:py-24 bg-white relative">
           <div className="container mx-auto px-4 lg:px-8">
             <div className="mb-20 text-center max-w-3xl mx-auto">
               <Badge className="bg-accent/10 text-accent border-accent/20 mb-4 px-6 py-1">Especialistas</Badge>
@@ -512,7 +512,7 @@ function LandingPage() {
           </div>
         </section>
         {/* Depoimentos Section - Esteira Infinita */}
-        <section className="bg-slate-50 py-24 lg:py-36 overflow-hidden">
+        <section className="bg-slate-50 py-16 lg:py-24 overflow-hidden">
           <div className="container mx-auto px-4 lg:px-8 mb-16">
             <div className="text-center max-w-3xl mx-auto">
               <Badge className="bg-primary/10 text-primary border-primary/20 mb-4 px-6 py-1">Depoimentos</Badge>
@@ -527,7 +527,8 @@ function LandingPage() {
             <motion.div 
               animate={{ x: ["0%", "-50%"] }}
               transition={{ 
-                duration: 25, 
+                duration: 15, 
+
                 repeat: Infinity, 
                 ease: "linear" 
               }}
@@ -562,7 +563,7 @@ function LandingPage() {
         </section>
 
         {/* Patrocinadores Section (Substituindo Blog/Conteúdo) */}
-        <section className="py-24 bg-white border-y border-slate-100">
+        <section className="py-16 bg-white border-y border-slate-100">
           <div className="container mx-auto px-4 lg:px-8">
             <div className="mb-16 text-center max-w-3xl mx-auto">
               <Badge className="bg-slate-100 text-slate-500 border-none mb-4 px-6 py-1">Nossa Rede</Badge>
@@ -583,7 +584,7 @@ function LandingPage() {
         </section>
 
         {/* FAQ Section - Refatorada */}
-        <section id="faq" className="py-24 lg:py-36 bg-slate-50">
+        <section id="faq" className="py-16 lg:py-24 bg-slate-50">
           <div className="container mx-auto max-w-4xl px-4 lg:px-8">
             <div className="mb-20 text-center">
               <Badge className="bg-primary/10 text-primary border-none mb-4 px-6 py-1">Dúvidas</Badge>
@@ -618,7 +619,7 @@ function LandingPage() {
         </section>
 
         {/* Final CTA */}
-        <section className="relative overflow-hidden bg-primary py-24 text-white">
+        <section className="relative overflow-hidden bg-primary py-16 text-white lg:py-24">
           <div className="container mx-auto px-4 text-center lg:px-8">
             <motion.div {...fadeInUp}>
               <h2 className="text-4xl font-bold md:text-5xl lg:text-6xl">
