@@ -619,7 +619,7 @@ function LandingPage() {
         </section>
 
         {/* Final CTA */}
-        <section className="relative overflow-hidden bg-primary py-24 text-white">
+        <section className="relative overflow-hidden bg-primary py-16 text-white lg:py-24">
           <div className="container mx-auto px-4 text-center lg:px-8">
             <motion.div {...fadeInUp}>
               <h2 className="text-4xl font-bold md:text-5xl lg:text-6xl">
