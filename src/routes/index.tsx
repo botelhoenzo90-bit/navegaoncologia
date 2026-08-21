@@ -19,6 +19,7 @@ import {
 } from "@/components/ui/carousel";
 import { Badge } from "@/components/ui/badge";
 import logoAsset from "@/assets/logo.asset.json";
+import logoSharingAsset from "@/assets/logo-sharing.png.asset.json";
 import heroNewAsset from "@/assets/hero-new.png.asset.json";
 import whatsappLogoAsset from "@/assets/whatsapp-logo.asset.json";
 
@@ -31,9 +32,9 @@ export const Route = createFileRoute("/")({
       { property: "og:title", content: "Navega Onco | Tecnologia e Cuidado Oncológico" },
       { property: "og:description", content: "Acompanhamento humanizado e tecnologia para pacientes oncológicos." },
       { property: "og:type", content: "website" },
-      { property: "og:image", content: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=80&w=1200" },
+      { property: "og:image", content: logoSharingAsset.url },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:image", content: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=80&w=1200" },
+      { name: "twitter:image", content: logoSharingAsset.url },
     ],
   }),
 });
