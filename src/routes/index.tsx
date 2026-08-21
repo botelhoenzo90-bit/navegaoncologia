@@ -389,9 +389,9 @@ function LandingPage() {
                 {[...Array(2)].map((_, i) => (
                   <div key={i} className="flex gap-8">
                     {[
-                      { title: "Navegação Oncológica", items: ["Plano individualizado", "Monitoramento ativo", "Educação do paciente"] },
-                      { title: "Telemonitoramento Inteligente", items: ["Dor e Náuseas", "Febre e Fadiga", "Sintomas do tratamento"] },
-                      { title: "Consultoria Institucional", items: ["Implantação de navegação", "Protocolos digitais", "Capacitação de equipe"] },
+                      { title: "Navegação Oncológica", items: ["Plano individualizado", "Acompanhamento Quimio/Radio", "Alta estruturada"] },
+                      { title: "Telemonitoramento IA", items: ["Sinais vitais e fadiga", "Estado nutricional", "Adesão medicamentosa"] },
+                      { title: "Consultoria Institucional", items: ["Indicadores de qualidade", "IA e Automação", "Capacitação de equipes"] },
                     ].map((service, idx) => (
                       <div
                         key={idx}
