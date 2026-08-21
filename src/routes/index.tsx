@@ -470,7 +470,7 @@ function LandingPage() {
         </section>
 
         {/* Nossa Equipe Section - Refatorada */}
-        <section className="py-24 lg:py-36 bg-white relative">
+        <section className="py-16 lg:py-24 bg-white relative">
           <div className="container mx-auto px-4 lg:px-8">
             <div className="mb-20 text-center max-w-3xl mx-auto">
               <Badge className="bg-accent/10 text-accent border-accent/20 mb-4 px-6 py-1">Especialistas</Badge>
