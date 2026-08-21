@@ -64,7 +64,7 @@ function LandingPage() {
   };
 
   return (
-    <div className="flex min-h-screen flex-col bg-background text-foreground font-sans">
+    <div className="flex min-h-screen flex-col bg-background text-foreground font-sans overflow-x-hidden">
 
       <main>
         {/* Hero Section */}
@@ -194,8 +194,8 @@ function LandingPage() {
             </div>
             <div className="mt-12 flex justify-center">
               <Button 
-                size="lg" 
-                className="rounded-full bg-primary px-10 text-lg font-bold shadow-lg shadow-primary/20 hover:scale-105 transition-transform"
+                size="default" 
+                className="rounded-2xl bg-primary px-8 text-base font-bold shadow-lg shadow-primary/20 hover:scale-105 transition-transform"
                 onClick={() => window.open(whatsappLink, "_blank")}
               >
                 Conheça mais sobre nós no WhatsApp
@@ -242,9 +242,9 @@ function LandingPage() {
             </div>
             <div className="mt-16 flex justify-center">
               <Button 
-                size="lg" 
+                size="default" 
                 variant="destructive"
-                className="rounded-full px-10 text-lg font-bold shadow-xl hover:scale-105 transition-transform"
+                className="rounded-2xl px-8 text-base font-bold shadow-xl hover:scale-105 transition-transform"
                 onClick={() => window.open(whatsappLink, "_blank")}
               >
                 Quero resolver esses problemas agora
@@ -459,8 +459,8 @@ function LandingPage() {
             </div>
             <div className="mt-16 flex justify-center">
               <Button 
-                size="lg" 
-                className="rounded-full bg-primary px-10 text-lg font-bold shadow-lg shadow-primary/20 hover:scale-105 transition-transform"
+                size="default" 
+                className="rounded-2xl bg-primary px-8 text-base font-bold shadow-lg shadow-primary/20 hover:scale-105 transition-transform"
                 onClick={() => window.open(whatsappLink, "_blank")}
               >
                 Entrar em contato com nossa equipe
@@ -481,7 +481,7 @@ function LandingPage() {
             </div>
             <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-3">
               {[
-                { name: "Dra. Ana Silva", role: "Navegadora Oncológica", desc: "Especialista em gestão de sintomas e suporte emocional com 10+ anos de experiência.", img: "https://images.unsplash.com/photo-1559839734-2b71f1536b8e?auto=format&fit=crop&q=80&w=600" },
+                { name: "Dra. Ana Silva", role: "Navegadora Oncológica", desc: "Especialista em gestão de sintomas e suporte emocional com 10+ anos de experiência.", img: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=600" },
                 { name: "Dr. Roberto Santos", role: "Coordenação Médica", desc: "Expert em tecnologia aplicada ao cuidado remoto e oncologia de precisão.", img: "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&q=80&w=600" },
                 { name: "Enf. Carla Oliveira", role: "Educação em Saúde", desc: "Focada em empoderar pacientes através do conhecimento e protocolos digitais.", img: "https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&fit=crop&q=80&w=600" },
               ].map((member, idx) => (
