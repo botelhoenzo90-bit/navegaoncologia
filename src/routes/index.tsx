@@ -292,8 +292,8 @@ function LandingPage() {
             
             <div className="mt-20 grid gap-8 sm:grid-cols-2 max-w-4xl mx-auto">
               {[
-                { title: "Telemonitoramento", desc: "Monitoramento constante de dor, náuseas e outros sintomas.", icon: Activity },
-                { title: "Protocolos Digitais", desc: "Automação e organização para clínicas e hospitais.", icon: Shield },
+                { title: "Telemonitoramento Inteligente", desc: "Monitoramento constante de dor, náuseas, febre, adesão medicamentosa e risco clínico.", icon: Activity },
+                { title: "Navegação & IA", desc: "Protocolos digitais e Inteligência Artificial aplicada ao cuidado e automação.", icon: Shield },
               ].map((card, idx) => (
                 <motion.div
                   key={idx}
