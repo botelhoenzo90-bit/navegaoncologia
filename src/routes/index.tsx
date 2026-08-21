@@ -265,12 +265,12 @@ function LandingPage() {
               </p>
               <div className="mt-12 grid gap-6 sm:grid-cols-2 md:grid-cols-3 w-full">
                 {[
-                  "Navegação Oncológica",
-                  "Telemonitoramento",
-                  "Enfermagem Online",
-                  "Educação em Saúde",
-                  "Gestão de Sintomas",
-                  "Acompanhamento Familiar"
+                  "Consulta de Enfermagem Online",
+                  "Navegação Oncológica Completa",
+                  "Telemonitoramento Inteligente",
+                  "Educação em Saúde (Cursos)",
+                  "Gestão de Sintomas com IA",
+                  "Acompanhamento Familiar & Alta"
                 ].map((service, idx) => (
                   <div key={idx} className="flex items-center justify-center gap-3 bg-white/10 rounded-xl p-4">
                     <div className="flex h-8 w-8 items-center justify-center rounded-full bg-white/20 shrink-0">
