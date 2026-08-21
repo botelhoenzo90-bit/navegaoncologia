@@ -242,9 +242,9 @@ function LandingPage() {
             </div>
             <div className="mt-16 flex justify-center">
               <Button 
-                size="lg" 
+                size="default" 
                 variant="destructive"
-                className="rounded-full px-10 text-lg font-bold shadow-xl hover:scale-105 transition-transform"
+                className="rounded-2xl px-8 text-base font-bold shadow-xl hover:scale-105 transition-transform"
                 onClick={() => window.open(whatsappLink, "_blank")}
               >
                 Quero resolver esses problemas agora
