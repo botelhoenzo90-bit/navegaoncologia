@@ -205,7 +205,7 @@ function LandingPage() {
         </section>
 
         {/* Problemas Section - Refatorada */}
-        <section className="py-24 lg:py-36 bg-white relative overflow-hidden">
+        <section className="py-16 lg:py-24 bg-white relative overflow-hidden">
           <div className="absolute top-0 right-0 w-1/3 h-full bg-slate-50/50 -z-10 skew-x-12 transform translate-x-20" />
           <div className="container mx-auto px-4 lg:px-8">
             <div className="text-center max-w-3xl mx-auto mb-20">
