@@ -7,7 +7,7 @@ import {
   GraduationCap, Bell, LifeBuoy, Layers, Star
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { CardContent } from "@/components/ui/card";
+
 import { Badge } from "@/components/ui/badge";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import logoAsset from "@/assets/logo.asset.json";
