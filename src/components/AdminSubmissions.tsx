@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState, type FormEvent } from "react";
 import { Link } from "@tanstack/react-router";
 import { ArrowLeft, Download, Eye, RefreshCw, Trash2, Users, Building2, LockKeyhole } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
@@ -21,7 +21,7 @@ export function AdminSubmissions() {
 
   const filtered = useMemo(() => filter === "all" ? items : items.filter(item => item.type === filter), [items, filter]);
 
-  const login = (e: React.FormEvent) => {
+  const login = (e: FormEvent) => {
     e.preventDefault();
     if (password === ADMIN_PASSWORD) {
       sessionStorage.setItem("navega_admin", "1");
