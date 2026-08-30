@@ -1,6 +1,4 @@
-import { useEffect, useState } from "react";
-import { Link } from "@tanstack/react-router";
-import { Accessibility, Eye, Minus, Plus } from "lucide-react";
+import { useEffect } from "react";
 import { NavegaLanding } from "@/components/NavegaLanding";
 
 export type NavegaSubmission = {
@@ -28,11 +26,6 @@ export function readSubmissions(): NavegaSubmission[] {
 }
 
 export function LandingEnhancements() {
-  const [fontScale, setFontScale] = useState(1);
-  const [contrast, setContrast] = useState(false);
-  const [reducedMotion, setReducedMotion] = useState(false);
-  const [toolsOpen, setToolsOpen] = useState(false);
-
   useEffect(() => {
     const onSubmit = (event: Event) => {
       const form = event.target as HTMLFormElement | null;
@@ -47,13 +40,6 @@ export function LandingEnhancements() {
     document.addEventListener("submit", onSubmit, true);
     return () => document.removeEventListener("submit", onSubmit, true);
   }, []);
-
-  useEffect(() => {
-    document.documentElement.style.setProperty("--navega-font-scale", String(fontScale));
-    document.documentElement.classList.toggle("navega-high-contrast", contrast);
-    document.documentElement.classList.toggle("navega-reduced-motion", reducedMotion);
-    return () => document.documentElement.classList.remove("navega-high-contrast", "navega-reduced-motion");
-  }, [fontScale, contrast, reducedMotion]);
 
   useEffect(() => {
     const section = Array.from(document.querySelectorAll("section")).find((el) => el.textContent?.includes("Corpo Clínico Especializado"));
@@ -93,22 +79,5 @@ export function LandingEnhancements() {
   return <>
     <a href="#main-content" className="fixed left-3 top-3 z-[300] -translate-y-24 rounded-lg bg-slate-950 px-4 py-3 text-white focus:translate-y-0">Pular para o conteúdo</a>
     <div id="main-content"><NavegaLanding /></div>
-    <button onClick={() => setToolsOpen(v => !v)} className="fixed bottom-28 left-5 z-[120] flex h-14 w-14 items-center justify-center rounded-full bg-slate-950 text-white shadow-xl" aria-label="Abrir ferramentas de acessibilidade"><Accessibility /></button>
-    {toolsOpen && <div className="fixed bottom-44 left-5 z-[120] w-72 rounded-2xl border bg-white p-4 shadow-2xl" role="dialog" aria-label="Ferramentas de acessibilidade">
-      <div className="mb-3 flex items-center gap-2 font-bold"><Accessibility className="h-5 w-5 text-primary" /> Acessibilidade</div>
-      <div className="grid grid-cols-3 gap-2">
-        <button className="rounded-lg border p-2" onClick={() => setFontScale(v => Math.min(1.5, +(v + .1).toFixed(1)))}><Plus className="mx-auto"/><span className="text-xs">Aumentar</span></button>
-        <button className="rounded-lg border p-2" onClick={() => setFontScale(v => Math.max(1, +(v - .1).toFixed(1)))}><Minus className="mx-auto"/><span className="text-xs">Diminuir</span></button>
-        <button className={`rounded-lg border p-2 ${contrast ? "bg-slate-950 text-white" : ""}`} onClick={() => setContrast(v => !v)}><Eye className="mx-auto"/><span className="text-xs">Contraste</span></button>
-      </div>
-      <button className="mt-2 w-full rounded-lg border p-2 text-left text-sm" onClick={() => setReducedMotion(v => !v)}>Reduzir animações: {reducedMotion ? "ON" : "OFF"}</button>
-      <p className="mt-3 text-xs text-muted-foreground">Para vídeos, utilize legendas e, quando disponível, interpretação em Libras.</p>
-      <Link to="/admin" className="mt-3 block text-center text-xs font-semibold text-primary underline">Acessar administração</Link>
-    </div>}
-    <style>{`
-      html { font-size: calc(100% * var(--navega-font-scale, 1)); }
-      html.navega-high-contrast body { filter: contrast(1.18); }
-      html.navega-reduced-motion *, html.navega-reduced-motion *::before, html.navega-reduced-motion *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
-    `}</style>
   </>;
 }
