@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import {
   Activity, ArrowRight, Calendar, CheckCircle2, ChevronRight, Heart, Layout,
   Menu, MessageSquare, Play, Search, Shield, Stethoscope, Users, X, MapPin,
-  Phone, Accessibility, Volume2, Eye, Building2, UserRound, ClipboardList,
+  Phone, Building2, UserRound, ClipboardList,
   GraduationCap, Bell, LifeBuoy, Layers, Star
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
