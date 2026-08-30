@@ -87,7 +87,7 @@ export function NavegaLanding() {
     ["A Navega Onco substitui o médico?", "Não. O serviço é complementar e voltado à navegação, enfermagem, educação e organização do cuidado. Não substitui avaliação ou acompanhamento médico."],
     ["Quem pode utilizar o serviço?", "Pacientes e familiares, além de clínicas, hospitais, infusão, home care, operadoras, profissionais e empresas do setor."],
   ];
-  const navItems = [["sobre","Quem Somos"],["servicos","Nossos Serviços"],["publicos","Para Quem Somos"],["como-funciona","Como Funciona"],["faq","FAQ"],["contato","Contato"]];
+  const navItems: [string, string][] = [["sobre","Quem Somos"],["servicos","Nossos Serviços"],["publicos","Para Quem Somos"],["como-funciona","Como Funciona"],["faq","FAQ"],["contato","Contato"]];
 
   return <div className={`min-h-screen overflow-x-hidden bg-background text-foreground font-sans ${largeText ? "text-[112%]" : ""} ${highContrast ? "contrast-125" : ""}`}>
     <header className="fixed inset-x-0 top-0 z-[100] border-b bg-white/95 shadow-sm backdrop-blur-xl">
