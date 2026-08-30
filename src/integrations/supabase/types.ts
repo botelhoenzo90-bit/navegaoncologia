@@ -14,7 +14,48 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      form_submissions: {
+        Row: {
+          created_at: string
+          data: Json
+          diagnostico: string | null
+          id: string
+          localizacao: string | null
+          nome: string | null
+          pacientes: string | null
+          suporte: string | null
+          telefone: string | null
+          tempo: string | null
+          type: string
+        }
+        Insert: {
+          created_at?: string
+          data?: Json
+          diagnostico?: string | null
+          id?: string
+          localizacao?: string | null
+          nome?: string | null
+          pacientes?: string | null
+          suporte?: string | null
+          telefone?: string | null
+          tempo?: string | null
+          type: string
+        }
+        Update: {
+          created_at?: string
+          data?: Json
+          diagnostico?: string | null
+          id?: string
+          localizacao?: string | null
+          nome?: string | null
+          pacientes?: string | null
+          suporte?: string | null
+          telefone?: string | null
+          tempo?: string | null
+          type?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
