@@ -23,8 +23,6 @@ export function NavegaLanding() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [audience, setAudience] = useState<Audience>(null);
   const [submitted, setSubmitted] = useState(false);
-  const [largeText, setLargeText] = useState(false);
-  const [highContrast, setHighContrast] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
