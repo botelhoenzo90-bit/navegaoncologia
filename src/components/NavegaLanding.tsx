@@ -23,6 +23,8 @@ export function NavegaLanding() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [audience, setAudience] = useState<Audience>(null);
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
@@ -35,8 +37,33 @@ export function NavegaLanding() {
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
     setMobileMenuOpen(false);
   };
-  const openForm = (type: Exclude<Audience, null>) => { setSubmitted(false); setAudience(type); };
+  const openForm = (type: Exclude<Audience, null>) => { setSubmitted(false); setSubmitError(null); setAudience(type); };
+
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    if (!audience) return;
+    const form = event.currentTarget;
+    const values: Record<string, string> = {};
+    new FormData(form).forEach((value, key) => { values[key] = String(value).trim(); });
+    setSubmitting(true);
+    setSubmitError(null);
+    const { error } = await supabase.from("form_submissions").insert({
+      type: audience,
+      nome: values['nome'] || null,
+      telefone: values['telefone'] || null,
+      diagnostico: values['diagnostico'] || null,
+      tempo: values['tempo'] || null,
+      suporte: values['suporte'] || null,
+      pacientes: values['pacientes'] || null,
+      localizacao: values['localizacao'] || null,
+      data: values,
+    });
+    setSubmitting(false);
+    if (error) { setSubmitError("Não foi possível enviar agora. Tente novamente ou fale pelo WhatsApp."); return; }
+    setSubmitted(true);
+  };
   const fadeInUp = { initial: { opacity: 0, y: 24 }, whileInView: { opacity: 1, y: 0 }, viewport: { once: true, margin: "-80px" }, transition: { duration: 0.6 } };
+
 
   const problems = [
     { title: "Falta de orientação", icon: Search, desc: "Organizamos a jornada e facilitamos o acesso às informações que você precisa." },
