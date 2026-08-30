@@ -1,9 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { NavegaLanding } from "@/components/NavegaLanding";
+import { LandingEnhancements } from "@/components/LandingEnhancements";
 import logoSharingAsset from "@/assets/logo-sharing.png.asset.json";
 
 export const Route = createFileRoute("/")({
-  component: NavegaLanding,
+  component: LandingEnhancements,
   head: () => ({
     meta: [
       { title: "Navega Onco | Cuidado Oncológico Digital e Humanizado" },
