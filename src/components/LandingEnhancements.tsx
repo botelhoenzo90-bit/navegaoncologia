@@ -35,7 +35,7 @@ export function LandingEnhancements() {
         if (field.name) data[field.name] = field.value;
       });
       if (!Object.keys(data).length) return;
-      saveSubmission(data.nome ? "patient" : "company", data);
+      saveSubmission(data["nome"] ? "patient" : "company", data);
     };
     document.addEventListener("submit", onSubmit, true);
     return () => document.removeEventListener("submit", onSubmit, true);
