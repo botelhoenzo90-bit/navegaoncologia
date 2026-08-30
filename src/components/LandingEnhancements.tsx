@@ -1,45 +1,8 @@
 import { useEffect } from "react";
 import { NavegaLanding } from "@/components/NavegaLanding";
 
-export type NavegaSubmission = {
-  id: string;
-  type: "patient" | "company";
-  createdAt: string;
-  data: Record<string, string>;
-};
-
-const STORAGE_KEY = "navega_onco_submissions";
-
-export function saveSubmission(type: NavegaSubmission["type"], data: Record<string, string>) {
-  const current: NavegaSubmission[] = JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]");
-  const next: NavegaSubmission = {
-    id: `${Date.now()}-${Math.random().toString(36).slice(2, 9)}`,
-    type,
-    createdAt: new Date().toISOString(),
-    data,
-  };
-  localStorage.setItem(STORAGE_KEY, JSON.stringify([next, ...current]));
-}
-
-export function readSubmissions(): NavegaSubmission[] {
-  try { return JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]"); } catch { return []; }
-}
-
 export function LandingEnhancements() {
-  useEffect(() => {
-    const onSubmit = (event: Event) => {
-      const form = event.target as HTMLFormElement | null;
-      if (!form) return;
-      const data: Record<string, string> = {};
-      form.querySelectorAll<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>("input[name], select[name], textarea[name]").forEach((field) => {
-        if (field.name) data[field.name] = field.value;
-      });
-      if (!Object.keys(data).length) return;
-      saveSubmission(data["nome"] ? "patient" : "company", data);
-    };
-    document.addEventListener("submit", onSubmit, true);
-    return () => document.removeEventListener("submit", onSubmit, true);
-  }, []);
+
 
   useEffect(() => {
     const section = Array.from(document.querySelectorAll("section")).find((el) => el.textContent?.includes("Corpo Clínico Especializado"));
