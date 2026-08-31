@@ -4,19 +4,33 @@ import { ConteudoInstitucional } from "@/components/ConteudoInstitucional";
 
 export function LandingEnhancements() {
   useEffect(() => {
-    // Remove the old standalone clinical-team block so the institutional
-    // presentation has one consolidated founders section below the landing.
-    const removeLegacyBlocks = () => {
-      const sections = Array.from(document.querySelectorAll("section"));
-      sections.forEach((section) => {
+    const arrangePage = () => {
+      const root = document.getElementById("main-content");
+      if (!root) return;
+
+      // Remove the old standalone clinical-team block so the institutional
+      // presentation has one consolidated founders section.
+      Array.from(root.querySelectorAll("section")).forEach((section) => {
         const text = section.textContent || "";
         if (text.includes("Corpo Clínico Especializado") || text.includes("Conheça os fundadores")) {
           if (!section.id || section.id !== "fundadores-nova") section.remove();
         }
       });
+
+      const institutional = root.querySelector("#fundadores-nova")?.parentElement;
+      const faq = root.querySelector("#faq");
+      const footer = root.querySelector("footer");
+
+      if (institutional && faq && footer) {
+        // ConteudoInstitucional is rendered after NavegaLanding for component
+        // separation, but the public page should read naturally: institutional
+        // content first, FAQ as the final content section, then the footer.
+        footer.before(institutional);
+        institutional.before(faq);
+      }
     };
 
-    const timer = window.setTimeout(removeLegacyBlocks, 0);
+    const timer = window.setTimeout(arrangePage, 0);
     return () => window.clearTimeout(timer);
   }, []);
 
