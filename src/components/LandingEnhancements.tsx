@@ -8,6 +8,8 @@ export function LandingEnhancements() {
       const root = document.getElementById("main-content");
       if (!root) return;
 
+      // Remove the old standalone clinical-team block so the institutional
+      // presentation has one consolidated founders section.
       Array.from(root.querySelectorAll("section")).forEach((section) => {
         const text = section.textContent || "";
         if (text.includes("Corpo Clínico Especializado") || text.includes("Conheça os fundadores")) {
@@ -17,14 +19,17 @@ export function LandingEnhancements() {
 
       const institutional = root.querySelector("#fundadores-nova")?.parentElement;
       const faq = root.querySelector("#faq");
+      const contato = root.querySelector("#contato");
       const footer = root.querySelector("footer");
 
-      if (institutional && faq && footer) {
-        // Move the institutional block out of the post-footer position and put
-        // it immediately before FAQ, making FAQ the last content section.
+      if (institutional && faq && contato && footer) {
+        // Ordem estratégica final: conteúdo institucional, depois FAQ e,
+        // por último, a seção de contato antes do rodapé.
         footer.before(institutional);
-        faq.before(institutional);
+        footer.before(faq);
+        footer.before(contato);
       }
+
     };
 
     const timer = window.setTimeout(arrangePage, 0);
