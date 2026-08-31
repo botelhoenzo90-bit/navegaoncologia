@@ -8,8 +8,6 @@ export function LandingEnhancements() {
       const root = document.getElementById("main-content");
       if (!root) return;
 
-      // Remove the old standalone clinical-team block so the institutional
-      // presentation has one consolidated founders section.
       Array.from(root.querySelectorAll("section")).forEach((section) => {
         const text = section.textContent || "";
         if (text.includes("Corpo Clínico Especializado") || text.includes("Conheça os fundadores")) {
@@ -22,11 +20,10 @@ export function LandingEnhancements() {
       const footer = root.querySelector("footer");
 
       if (institutional && faq && footer) {
-        // ConteudoInstitucional is rendered after NavegaLanding for component
-        // separation, but the public page should read naturally: institutional
-        // content first, FAQ as the final content section, then the footer.
+        // Move the institutional block out of the post-footer position and put
+        // it immediately before FAQ, making FAQ the last content section.
         footer.before(institutional);
-        institutional.before(faq);
+        faq.before(institutional);
       }
     };
 
