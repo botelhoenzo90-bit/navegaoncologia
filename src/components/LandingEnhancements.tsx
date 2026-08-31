@@ -1,6 +1,8 @@
 import { useEffect } from "react";
 import { NavegaLanding } from "@/components/NavegaLanding";
 import { ConteudoInstitucional } from "@/components/ConteudoInstitucional";
+import { VLibrasWidget } from "@/components/VLibrasWidget";
+
 
 export function LandingEnhancements() {
   useEffect(() => {

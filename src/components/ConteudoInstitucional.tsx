@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import type { ReactNode } from "react";
-import { BriefcaseBusiness, HeartHandshake, Landmark, LifeBuoy, Scale, ShieldCheck, Users } from "lucide-react";
+import { BriefcaseBusiness, Captions, Hand, HeartHandshake, Landmark, LifeBuoy, MessagesSquare, Scale, ShieldCheck, Users } from "lucide-react";
 
 const legalLinks = [
   { title: "Estatuto da Pessoa com Câncer — Lei nº 14.238/2021", text: "Estabelece princípios e direitos relacionados à dignidade, informação, tratamento adequado, assistência social e jurídica e apoio à pessoa com câncer e sua família.", href: "https://www.planalto.gov.br/ccivil_03/_ato2019-2022/2021/lei/l14238.htm" },
@@ -36,8 +36,18 @@ export function ConteudoInstitucional() {
 
     <section id="missao-valores" className="scroll-mt-28 bg-white py-16 lg:py-24"><div className="container mx-auto px-4 lg:px-8"><div className="mx-auto max-w-4xl text-center"><span className="inline-flex rounded-full bg-primary/10 px-4 py-1.5 text-base font-bold text-primary">Nossa essência</span><h2 className="mt-4 text-4xl font-bold md:text-5xl">Missão, visão e valores</h2></div><div className="mx-auto mt-10 grid max-w-6xl gap-6 md:grid-cols-3"><InfoCard icon={<HeartHandshake />} title="Missão" text="Aproximar pessoas, informação e profissionais para tornar a jornada do cuidado oncológico mais organizada, humanizada e individualizada." /><InfoCard icon={<Landmark />} title="Visão" text="Ser referência em navegação e cuidado oncológico digital, contribuindo para jornadas mais claras, conectadas e centradas na pessoa." /><InfoCard icon={<ShieldCheck />} title="Valores" text="Humanização, escuta, ética, respeito, segurança, individualização do cuidado, educação em saúde e compromisso com a pessoa e sua família." /></div><div className="mt-12 flex justify-center"><a href="https://wa.me/5500000000000" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-full bg-primary px-9 py-4 text-lg font-bold text-white shadow-xl shadow-primary/20 hover:opacity-90">Falar com a equipe</a></div></div></section>
 
-    
+    <section id="acessibilidade" className="scroll-mt-28 bg-slate-50 py-16 lg:py-24"><div className="container mx-auto px-4 lg:px-8">
+      <div className="mx-auto max-w-4xl text-center"><span className="inline-flex rounded-full bg-primary/10 px-4 py-1.5 text-base font-bold text-primary">Acessibilidade</span><h2 className="mt-4 text-4xl font-bold md:text-5xl">Atendimento acessível para pessoas surdas e com deficiência auditiva</h2><p className="mt-5 text-lg leading-relaxed text-muted-foreground md:text-xl">Este site conta com tradutor de Libras e canais de atendimento por escrito, para que a comunicação aconteça do jeito mais confortável para cada pessoa.</p></div>
+      <div className="mx-auto mt-10 grid max-w-6xl gap-6 lg:grid-cols-3">
+        <InfoCard icon={<Hand size={28} />} title="Tradutor de Libras (VLibras)" text="Clique no botão azul de Libras, no canto da tela, para ativar o intérprete virtual e traduzir os conteúdos do site para a Língua Brasileira de Sinais." />
+        <InfoCard icon={<MessagesSquare size={28} />} title="Atendimento por texto" text="Todo o contato com a nossa equipe pode ser feito por mensagem escrita no WhatsApp ou por e-mail, sem necessidade de ligação telefônica." />
+        <InfoCard icon={<Captions size={28} />} title="Vídeos com legendas" text="Nossos conteúdos em vídeo trazem legendas e, quando possível, versão em Libras, além de material educativo em texto para leitura." />
+      </div>
+      <div className="mx-auto mt-8 max-w-6xl rounded-3xl border border-primary/10 bg-white p-6 text-center text-base leading-relaxed text-muted-foreground">Precisa de atendimento em Libras com intérprete humano? Envie uma mensagem de texto e organizamos uma videochamada acessível com a equipe.</div>
+      <div className="mt-10 flex justify-center"><a href="https://wa.me/5500000000000" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-full bg-primary px-9 py-4 text-lg font-bold text-white shadow-xl shadow-primary/20 hover:opacity-90">Falar por mensagem de texto</a></div>
+    </div></section>
   </div>;
+
 }
 
 function FounderCard({ name, role }: { name: string; role: string }) {
