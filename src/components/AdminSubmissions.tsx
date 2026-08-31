@@ -119,9 +119,9 @@ export function AdminSubmissions() {
           <span className="mb-2 block font-semibold">Senha</span>
           <input autoFocus type="password" value={password} onChange={e => setPassword(e.target.value)} className="h-14 w-full rounded-xl border px-4 text-lg outline-none focus:ring-2 focus:ring-primary" />
         </label>
-        {error && <p className="mt-4 rounded-xl bg-red-50 p-3 text-sm font-semibold text-red-600">{error}</p>}
+        {error && <p className="mt-4 rounded-xl bg-red-50 p-3 text-base font-semibold text-red-600">{error}</p>}
         <Button disabled={loading} className="mt-5 h-14 w-full rounded-xl text-lg">{loading ? "Verificando..." : "Entrar"}</Button>
-        <Link to="/" className="mt-5 block text-center text-sm font-semibold text-primary">Voltar ao site</Link>
+        <Link to="/" className="mt-5 block text-center text-base font-semibold text-primary">Voltar ao site</Link>
       </form>
     </main>
   );
@@ -131,7 +131,7 @@ export function AdminSubmissions() {
       <header className="sticky top-0 z-20 border-b bg-white/95 backdrop-blur">
         <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-4 px-5 py-4">
           <div>
-            <p className="text-sm font-semibold text-primary">NAVEGA ONCO</p>
+            <p className="text-base font-semibold text-primary">NAVEGA ONCO</p>
             <h1 className="text-2xl font-bold">Formulários recebidos</h1>
           </div>
           <div className="flex flex-wrap gap-2">
@@ -144,9 +144,9 @@ export function AdminSubmissions() {
       <div className="mx-auto max-w-7xl p-5 lg:p-8">
         {error && <p className="mb-5 rounded-xl bg-red-50 p-4 font-semibold text-red-600">{error}</p>}
         <div className="grid gap-4 md:grid-cols-3">
-          <div className="rounded-2xl bg-white p-5 shadow-sm"><p className="text-sm text-muted-foreground">Total</p><p className="mt-2 text-3xl font-bold">{items.length}</p></div>
-          <div className="rounded-2xl bg-white p-5 shadow-sm"><p className="text-sm text-muted-foreground">Pacientes/Famílias</p><p className="mt-2 text-3xl font-bold">{items.filter(i => i.type === "patient").length}</p></div>
-          <div className="rounded-2xl bg-white p-5 shadow-sm"><p className="text-sm text-muted-foreground">Empresas</p><p className="mt-2 text-3xl font-bold">{items.filter(i => i.type === "company").length}</p></div>
+          <div className="rounded-2xl bg-white p-5 shadow-sm"><p className="text-base text-muted-foreground">Total</p><p className="mt-2 text-3xl font-bold">{items.length}</p></div>
+          <div className="rounded-2xl bg-white p-5 shadow-sm"><p className="text-base text-muted-foreground">Pacientes/Famílias</p><p className="mt-2 text-3xl font-bold">{items.filter(i => i.type === "patient").length}</p></div>
+          <div className="rounded-2xl bg-white p-5 shadow-sm"><p className="text-base text-muted-foreground">Empresas</p><p className="mt-2 text-3xl font-bold">{items.filter(i => i.type === "company").length}</p></div>
         </div>
         <div className="mt-8 flex flex-wrap items-center gap-2">
           <Button variant={filter === "all" ? "default" : "outline"} onClick={() => setFilter("all")}>Todos</Button>
@@ -156,7 +156,7 @@ export function AdminSubmissions() {
         <div className="mt-5 overflow-hidden rounded-2xl border bg-white shadow-sm">
           <div className="overflow-x-auto">
             <table className="w-full min-w-[760px] text-left">
-              <thead className="bg-slate-50 text-sm"><tr><th className="p-4">Tipo</th><th className="p-4">Identificação</th><th className="p-4">Telefone</th><th className="p-4">Data</th><th className="p-4 text-right">Ações</th></tr></thead>
+              <thead className="bg-slate-50 text-base"><tr><th className="p-4">Tipo</th><th className="p-4">Identificação</th><th className="p-4">Telefone</th><th className="p-4">Data</th><th className="p-4 text-right">Ações</th></tr></thead>
               <tbody>
                 {filtered.map(item => (
                   <tr key={item.id} className="border-t">
@@ -185,14 +185,14 @@ export function AdminSubmissions() {
               <div>
                 <Badge>{selected.type === "patient" ? "Paciente/Família" : "Empresa"}</Badge>
                 <h2 className="mt-3 text-2xl font-bold">Detalhes do formulário</h2>
-                <p className="mt-1 text-sm text-muted-foreground">Recebido em {new Date(selected.created_at).toLocaleString("pt-BR")}</p>
+                <p className="mt-1 text-base text-muted-foreground">Recebido em {new Date(selected.created_at).toLocaleString("pt-BR")}</p>
               </div>
               <Button variant="outline" onClick={() => setSelected(null)}>Fechar</Button>
             </div>
             <div className="mt-7 grid gap-4 sm:grid-cols-2">
               {FIELDS.filter(f => selected[f] || selected.data?.[f]).map(f => (
                 <div key={f} className="rounded-xl bg-slate-50 p-4">
-                  <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">{LABELS[f]}</p>
+                  <p className="text-sm font-semibold uppercase tracking-wide text-muted-foreground">{LABELS[f]}</p>
                   <p className="mt-1 break-words text-lg font-semibold">{selected[f] || selected.data?.[f]}</p>
                 </div>
               ))}
