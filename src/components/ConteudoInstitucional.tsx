@@ -1,0 +1,191 @@
+import { motion } from "framer-motion";
+import {
+  BookOpen,
+  BriefcaseBusiness,
+  Building2,
+  HeartHandshake,
+  Landmark,
+  LifeBuoy,
+  Scale,
+  ShieldCheck,
+  Users,
+} from "lucide-react";
+
+const legalLinks = [
+  {
+    title: "Estatuto da Pessoa com Câncer — Lei nº 14.238/2021",
+    text: "Estabelece princípios e direitos relacionados à dignidade, informação, tratamento adequado, assistência social e jurídica e apoio à pessoa com câncer e sua família.",
+    href: "https://www.planalto.gov.br/ccivil_03/_ato2019-2022/2021/lei/l14238.htm",
+  },
+  {
+    title: "Política Nacional de Prevenção e Controle do Câncer — Lei nº 14.758/2023",
+    text: "Institui a política nacional no SUS e o Programa Nacional de Navegação da Pessoa com Diagnóstico de Câncer, reforçando a organização da jornada de cuidado.",
+    href: "https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2023/lei/l14758.htm",
+  },
+  {
+    title: "Direito à informação e acesso ao cuidado",
+    text: "O Ministério da Saúde informa que o SUS oferece atendimento oncológico gratuito e organizado desde a atenção básica até os serviços especializados, conforme a necessidade de cada pessoa.",
+    href: "https://www.gov.br/saude/pt-br/composicao/saes/atencao-ao-cancer/faq/faq/quem-tem-cancer-pode-ser",
+  },
+];
+
+const supportNetwork = [
+  ["Unidade Básica de Saúde", "Porta de entrada para avaliação, orientação e encaminhamento na rede pública."],
+  ["Hospitais e serviços de oncologia", "Equipes assistenciais, serviço social e demais profissionais podem orientar sobre os recursos disponíveis para cada caso."],
+  ["Assistência social", "O serviço social da instituição pode ajudar a identificar benefícios, recursos públicos e caminhos de apoio social."],
+  ["Ouvidoria e canais do SUS", "Podem orientar sobre acesso aos serviços públicos e registrar solicitações ou manifestações relacionadas ao atendimento."],
+  ["Associações e grupos de apoio", "Organizações de pacientes podem oferecer informação, acolhimento e orientação complementar."],
+  ["Rede municipal e estadual", "Secretarias de Saúde e outros serviços públicos podem indicar recursos existentes na região do paciente."],
+];
+
+export function ConteudoInstitucional() {
+  return (
+    <div className="bg-white">
+      <section id="fundadores-nova" className="scroll-mt-28 bg-slate-50 py-16 lg:py-24">
+        <div className="container mx-auto px-4 lg:px-8">
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mx-auto max-w-4xl text-center">
+            <span className="inline-flex rounded-full bg-primary/10 px-4 py-1.5 text-sm font-bold text-primary">Nossa história</span>
+            <h2 className="mt-4 text-4xl font-bold tracking-tight md:text-5xl">Conheça Rosivalda e Adalberto</h2>
+            <p className="mt-5 text-lg leading-relaxed text-muted-foreground md:text-xl">
+              A Navega Onco nasceu da vontade de tornar a jornada do cuidado oncológico mais próxima, organizada e individualizada. Aqui, os fundadores podem apresentar sua trajetória profissional, experiências e a motivação que levou à criação da Navega Onco.
+            </p>
+          </motion.div>
+          <div className="mx-auto mt-12 grid max-w-6xl gap-8 md:grid-cols-2">
+            <FounderCard name="Rosivalda" role="Fundadora" />
+            <FounderCard name="Adalberto" role="Fundador" />
+          </div>
+          <div className="mx-auto mt-10 max-w-5xl rounded-3xl border border-primary/10 bg-white p-7 text-center shadow-sm md:p-10">
+            <h3 className="text-2xl font-bold">Por que criamos a Navega Onco?</h3>
+            <p className="mx-auto mt-4 max-w-3xl text-lg leading-relaxed text-muted-foreground">
+              Porque cada paciente vive uma jornada diferente. O cuidado precisa considerar diagnóstico, contexto, necessidades, dúvidas, família e momento de vida. Por isso, o plano de cuidado não é uma fórmula pronta: ele é construído de forma individualizada e pode ser ajustado conforme a evolução de cada pessoa.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="enfermagem" className="bg-white py-16 lg:py-24">
+        <div className="container mx-auto grid items-center gap-10 px-4 lg:grid-cols-2 lg:px-8">
+          <div className="overflow-hidden rounded-[2rem] shadow-xl ring-1 ring-slate-200">
+            <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&q=85&w=1200" alt="Enfermeiro realizando atendimento digital" className="aspect-[4/3] w-full object-cover" loading="lazy" />
+          </div>
+          <div>
+            <span className="text-sm font-bold uppercase tracking-[0.18em] text-primary">Cuidado próximo</span>
+            <h2 className="mt-3 text-4xl font-bold md:text-5xl">Enfermagem que acompanha a sua jornada</h2>
+            <p className="mt-5 text-lg leading-relaxed text-muted-foreground">
+              O atendimento digital permite manter orientação e acompanhamento à distância, respeitando as necessidades apresentadas por cada paciente. O enfermeiro atua como parte da rede de cuidado, ajudando a organizar informações, orientar a família e acompanhar a jornada definida com a equipe assistencial.
+            </p>
+            <div className="mt-7 rounded-2xl bg-primary/5 p-6">
+              <h3 className="text-xl font-bold">Plano individualizado</h3>
+              <p className="mt-2 text-muted-foreground">Não trabalhamos com soluções prontas. O plano é construído de acordo com o contexto, as necessidades e os objetivos de cuidado de cada paciente.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="direitos-oncologicos" className="scroll-mt-28 bg-slate-50 py-16 lg:py-24">
+        <div className="container mx-auto px-4 lg:px-8">
+          <div className="mx-auto max-w-4xl text-center">
+            <span className="inline-flex rounded-full bg-primary/10 px-4 py-1.5 text-sm font-bold text-primary">Informação e cidadania</span>
+            <h2 className="mt-4 text-4xl font-bold md:text-5xl">Legislação e direitos da pessoa com câncer</h2>
+            <p className="mt-5 text-lg leading-relaxed text-muted-foreground md:text-xl">Informações gerais para ajudar pacientes e familiares a conhecer caminhos de acesso ao cuidado e aos seus direitos. A legislação pode mudar e a aplicação de cada direito depende do caso concreto.</p>
+          </div>
+          <div className="mx-auto mt-10 grid max-w-6xl gap-6 lg:grid-cols-3">
+            {legalLinks.map((item) => (
+              <article key={item.title} className="flex h-full flex-col rounded-3xl bg-white p-7 shadow-sm ring-1 ring-slate-200">
+                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10 text-primary"><Scale size={24} /></div>
+                <h3 className="mt-5 text-xl font-bold">{item.title}</h3>
+                <p className="mt-3 flex-1 leading-relaxed text-muted-foreground">{item.text}</p>
+                <a href={item.href} target="_blank" rel="noreferrer" className="mt-5 font-bold text-primary hover:underline">Consultar fonte oficial →</a>
+              </article>
+            ))}
+          </div>
+          <div className="mx-auto mt-8 max-w-6xl rounded-3xl border border-amber-200 bg-amber-50 p-6 text-sm leading-relaxed text-amber-950">
+            Conteúdo educativo. A Navega Onco não presta consultoria jurídica e esta seção não substitui orientação profissional ou a consulta à legislação e às fontes oficiais.
+          </div>
+        </div>
+      </section>
+
+      <section id="rede-apoio" className="scroll-mt-28 bg-white py-16 lg:py-24">
+        <div className="container mx-auto px-4 lg:px-8">
+          <div className="grid gap-10 lg:grid-cols-[.85fr_1.15fr] lg:items-start">
+            <div>
+              <span className="inline-flex rounded-full bg-primary/10 px-4 py-1.5 text-sm font-bold text-primary">Você não está sozinho</span>
+              <h2 className="mt-4 text-4xl font-bold md:text-5xl">Rede de apoio para pacientes e famílias</h2>
+              <p className="mt-5 text-lg leading-relaxed text-muted-foreground">Além do acompanhamento da Navega Onco, existem serviços públicos, hospitalares e comunitários que podem ser acionados conforme a necessidade e a região.</p>
+            </div>
+            <div className="grid gap-4 sm:grid-cols-2">
+              {supportNetwork.map(([title, text]) => (
+                <article key={title} className="rounded-2xl border border-slate-200 bg-slate-50 p-6">
+                  <HeartHandshake className="text-primary" size={26} />
+                  <h3 className="mt-4 text-lg font-bold">{title}</h3>
+                  <p className="mt-2 leading-relaxed text-muted-foreground">{text}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="duvidas-pos-diagnostico" className="scroll-mt-28 bg-primary/5 py-16 lg:py-24">
+        <div className="container mx-auto px-4 lg:px-8">
+          <div className="mx-auto max-w-4xl rounded-[2rem] bg-white p-8 shadow-xl ring-1 ring-primary/10 md:p-12">
+            <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/10 text-primary"><LifeBuoy size={28} /></div>
+            <h2 className="mt-6 text-4xl font-bold">Dúvidas pós-diagnóstico</h2>
+            <p className="mt-5 text-lg leading-relaxed text-muted-foreground">Receber um diagnóstico pode trazer muitas perguntas. A orientação precisa considerar o momento de cada pessoa, suas dúvidas, rede de apoio e necessidades de cuidado. A Navega Onco ajuda a organizar a jornada e identificar o próximo passo, sem substituir a equipe médica responsável pelo tratamento.</p>
+            <div className="mt-7 grid gap-4 md:grid-cols-3">
+              {["Entender o próximo passo", "Organizar informações", "Orientar a família"].map((item) => <div key={item} className="rounded-2xl bg-slate-50 p-5 font-semibold">{item}</div>)}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="beneficios-empresas" className="scroll-mt-28 bg-slate-950 py-16 text-white lg:py-24">
+        <div className="container mx-auto px-4 lg:px-8">
+          <div className="mx-auto max-w-4xl text-center">
+            <span className="inline-flex rounded-full bg-white/10 px-4 py-1.5 text-sm font-bold text-primary-foreground">Soluções institucionais</span>
+            <h2 className="mt-4 text-4xl font-bold md:text-5xl">Benefícios da Navega Onco para empresas</h2>
+            <p className="mt-5 text-lg leading-relaxed text-white/70">Soluções para organizações que desejam apoiar a jornada oncológica de pacientes e famílias com cuidado estruturado e acompanhamento individualizado.</p>
+          </div>
+          <div className="mx-auto mt-10 grid max-w-6xl gap-5 md:grid-cols-2 lg:grid-cols-4">
+            {["Pacientes", "Familiares", "Clínicas e hospitais", "Infusão e Home Care", "Operadoras", "Equipes de saúde", "Gestão do cuidado", "Educação em saúde"].map((item) => (
+              <div key={item} className="rounded-2xl border border-white/10 bg-white/5 p-6"><BriefcaseBusiness className="text-primary" size={25} /><h3 className="mt-4 text-lg font-bold">{item}</h3><p className="mt-2 text-sm leading-relaxed text-white/60">Estratégias de cuidado e navegação adaptadas ao contexto da organização.</p></div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="missao-valores" className="scroll-mt-28 bg-white py-16 lg:py-24">
+        <div className="container mx-auto px-4 lg:px-8">
+          <div className="mx-auto max-w-4xl text-center"><span className="inline-flex rounded-full bg-primary/10 px-4 py-1.5 text-sm font-bold text-primary">Nossa essência</span><h2 className="mt-4 text-4xl font-bold md:text-5xl">Missão, visão e valores</h2></div>
+          <div className="mx-auto mt-10 grid max-w-6xl gap-6 md:grid-cols-3">
+            <InfoCard icon={<HeartHandshake />} title="Missão" text="Aproximar pessoas, informação e profissionais para tornar a jornada do cuidado oncológico mais organizada, humanizada e individualizada." />
+            <InfoCard icon={<Landmark />} title="Visão" text="Ser referência em navegação e cuidado oncológico digital, contribuindo para jornadas mais claras, conectadas e centradas na pessoa." />
+            <InfoCard icon={<ShieldCheck />} title="Valores" text="Humanização, escuta, ética, respeito, segurança, individualização do cuidado, educação em saúde e compromisso com a pessoa e sua família." />
+          </div>
+        </div>
+      </section>
+
+      <section id="razao-social" className="bg-slate-50 py-10">
+        <div className="container mx-auto px-4 text-center lg:px-8">
+          <div className="mx-auto flex max-w-4xl items-center justify-center gap-3 text-sm text-muted-foreground"><Building2 size={18} className="text-primary" /><span><strong>Razão social:</strong> informação cadastral da empresa a ser preenchida pelo responsável administrativo.</span></div>
+          <p className="mt-3 text-xs text-muted-foreground">As informações institucionais e jurídicas devem ser conferidas e atualizadas pelo responsável legal antes da publicação definitiva.</p>
+        </div>
+      </section>
+    </div>
+  );
+}
+
+function FounderCard({ name, role }: { name: string; role: string }) {
+  return (
+    <article className="overflow-hidden rounded-[2rem] bg-white shadow-xl ring-1 ring-slate-200">
+      <div className="flex min-h-[300px] items-center justify-center bg-gradient-to-br from-primary/10 via-white to-slate-100 p-8">
+        <div className="flex h-32 w-32 items-center justify-center rounded-full bg-primary/10 text-primary"><Users size={56} /></div>
+      </div>
+      <div className="p-8 text-center"><span className="rounded-full bg-primary/10 px-4 py-1.5 text-sm font-bold text-primary">{role}</span><h3 className="mt-4 text-3xl font-bold">{name}</h3><p className="mt-3 leading-relaxed text-muted-foreground">Espaço institucional para a apresentação da trajetória profissional, formação, experiência e participação na criação da Navega Onco.</p></div>
+    </article>
+  );
+}
+
+function InfoCard({ icon, title, text }: { icon: React.ReactNode; title: string; text: string }) {
+  return <article className="rounded-3xl border border-slate-200 bg-slate-50 p-8 text-center shadow-sm"><div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/10 text-primary">{icon}</div><h3 className="mt-5 text-2xl font-bold">{title}</h3><p className="mt-3 leading-relaxed text-muted-foreground">{text}</p></article>;
+}
