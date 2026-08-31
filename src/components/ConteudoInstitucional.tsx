@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import type { ReactNode } from "react";
-import { BriefcaseBusiness, Building2, HeartHandshake, Landmark, LifeBuoy, Scale, ShieldCheck, Users } from "lucide-react";
+import { BriefcaseBusiness, HeartHandshake, Landmark, LifeBuoy, Scale, ShieldCheck, Users } from "lucide-react";
 
 const legalLinks = [
   { title: "Estatuto da Pessoa com Câncer — Lei nº 14.238/2021", text: "Estabelece princípios e direitos relacionados à dignidade, informação, tratamento adequado, assistência social e jurídica e apoio à pessoa com câncer e sua família.", href: "https://www.planalto.gov.br/ccivil_03/_ato2019-2022/2021/lei/l14238.htm" },
