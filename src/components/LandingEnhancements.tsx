@@ -19,15 +19,17 @@ export function LandingEnhancements() {
 
       const institutional = root.querySelector("#fundadores-nova")?.parentElement;
       const faq = root.querySelector("#faq");
+      const contato = root.querySelector("#contato");
       const footer = root.querySelector("footer");
 
-      if (institutional && faq && footer) {
-        // ConteudoInstitucional is rendered after NavegaLanding for component
-        // separation, but the public page should read naturally: institutional
-        // content first, FAQ as the final content section, then the footer.
+      if (institutional && faq && contato && footer) {
+        // Ordem estratégica final: conteúdo institucional, depois FAQ e,
+        // por último, a seção de contato antes do rodapé.
         footer.before(institutional);
-        institutional.before(faq);
+        footer.before(faq);
+        footer.before(contato);
       }
+
     };
 
     const timer = window.setTimeout(arrangePage, 0);
