@@ -39,7 +39,7 @@ export function VLibrasWidget() {
   if (!mounted) return null;
 
   return (
-    <div vw-="true" className="enabled" vw="true">
+    <div vw="true" className="enabled">
       <div vw-access-button="true" className="active" />
       <div vw-plugin-wrapper="true">
         <div className="vw-plugin-top-wrapper" />
