@@ -39,9 +39,9 @@ export function VLibrasWidget() {
   if (!mounted) return null;
 
   return (
-    <div vw="true" className="enabled">
-      <div vw-access-button="true" className="active" />
-      <div vw-plugin-wrapper="true">
+    <div {...({ vw: "true" } as Record<string, string>)} className="enabled">
+      <div {...({ "vw-access-button": "true" } as Record<string, string>)} className="active" />
+      <div {...({ "vw-plugin-wrapper": "true" } as Record<string, string>)}>
         <div className="vw-plugin-top-wrapper" />
       </div>
     </div>
