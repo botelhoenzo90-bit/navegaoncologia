@@ -2,7 +2,6 @@ import { useEffect } from "react";
 import { NavegaLanding } from "@/components/NavegaLanding";
 import { ConteudoInstitucional } from "@/components/ConteudoInstitucional";
 import { VLibrasWidget } from "@/components/VLibrasWidget";
-import { AccessibilityBar } from "@/components/AccessibilityBar";
 
 
 export function LandingEnhancements() {
@@ -43,14 +42,11 @@ export function LandingEnhancements() {
     <>
       <a
         href="#main-content"
-        className="fixed left-3 top-14 z-[300] -translate-y-24 rounded-lg bg-slate-950 px-4 py-3 text-white focus:translate-y-0"
+        className="fixed left-3 top-4 z-[300] -translate-y-24 rounded-lg bg-slate-950 px-4 py-3 text-white focus:translate-y-0"
       >
         Pular para o conteúdo
       </a>
-      <AccessibilityBar />
       <VLibrasWidget />
-      {/* Espaçador da altura da barra fixa de acessibilidade */}
-      <div className="h-11" aria-hidden="true" />
       <div id="main-content">
         <NavegaLanding />
         <ConteudoInstitucional />
