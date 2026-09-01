@@ -140,3 +140,22 @@
   main > section:first-child .container > div > div:first-child > :nth-child(4) { grid-row: 5; }
   main > section:first-child .container > div > div:first-child > :nth-child(5) { grid-row: 6; }
 }
+
+/* VLibras: posiciona o botão do tradutor abaixo da barra de acessibilidade, sem sobrepor o WhatsApp */
+[vw] .active[vw-access-button],
+[vw-access-button].active {
+  top: 64px !important;
+  bottom: auto !important;
+  left: 16px !important;
+  right: auto !important;
+  z-index: 390 !important;
+}
+[vw] [vw-plugin-wrapper],
+[vw-plugin-wrapper] {
+  top: 64px !important;
+  bottom: auto !important;
+  left: 16px !important;
+  right: auto !important;
+  z-index: 399 !important;
+  max-height: calc(100vh - 80px) !important;
+}
