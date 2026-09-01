@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { NavegaLanding } from "@/components/NavegaLanding";
 import { ConteudoInstitucional } from "@/components/ConteudoInstitucional";
 import { VLibrasWidget } from "@/components/VLibrasWidget";
+import { AccessibilityBar } from "@/components/AccessibilityBar";
 
 
 export function LandingEnhancements() {
