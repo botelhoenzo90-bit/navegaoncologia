@@ -141,11 +141,24 @@
   main > section:first-child .container > div > div:first-child > :nth-child(5) { grid-row: 6; }
 }
 
-/* Marca d'água: a logo fica no fundo, atrás dos cards e das escritas.
-   Só os painéis claros das seções ficam levemente translúcidos; os cards
-   continuam opacos, então a marca aparece nos vazios, não dentro do texto. */
-#main-content section.bg-white { background-color: rgb(255 255 255 / 0.72); }
-#main-content section.bg-slate-50 { background-color: rgb(248 250 252 / 0.72); }
+/* Marca d'água: a logo fica no fundo, atrás de tudo, e deve aparecer em
+   qualquer parte do site. Por isso todos os painéis de seção ficam
+   levemente translúcidos — inclusive o degradê da abertura e as faixas
+   escuras. Os cards continuam opacos, então a marca nunca cruza o texto. */
+#main-content section.bg-white { background-color: rgb(255 255 255 / 0.7); }
+#main-content section.bg-slate-50 { background-color: rgb(248 250 252 / 0.7); }
+#main-content section.bg-slate-100 { background-color: rgb(241 245 249 / 0.7); }
+#main-content section.bg-slate-950 { background-color: color-mix(in srgb, var(--color-slate-950, #020617) 88%, transparent); }
+#main-content section.bg-slate-900 { background-color: color-mix(in srgb, var(--color-slate-900, #0f172a) 88%, transparent); }
+#main-content section.bg-primary { background-color: color-mix(in srgb, var(--primary, #6355d8) 88%, transparent); }
+#main-content section.bg-gradient-to-br {
+  background-image: linear-gradient(
+    to bottom right,
+    rgb(255 255 255 / 0.7),
+    rgb(248 250 252 / 0.7),
+    color-mix(in srgb, var(--primary, #6355d8) 6%, transparent)
+  );
+}
 
 /* VLibras: bolinha flutuante no canto inferior esquerdo, longe do WhatsApp */
 [vw] .active[vw-access-button],
