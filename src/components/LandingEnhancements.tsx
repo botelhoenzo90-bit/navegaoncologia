@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { NavegaLanding } from "@/components/NavegaLanding";
 import { ConteudoInstitucional } from "@/components/ConteudoInstitucional";
 import { VLibrasWidget } from "@/components/VLibrasWidget";
+import logoAsset from "@/assets/logo.asset.json";
 
 
 export function LandingEnhancements() {
@@ -47,6 +48,7 @@ export function LandingEnhancements() {
         Pular para o conteúdo
       </a>
       <VLibrasWidget />
+      <div aria-hidden="true" className="pointer-events-none fixed inset-0 z-[50] flex items-center justify-center"><img src={logoAsset.url} alt="" className="w-[80vw] max-w-[640px] opacity-[0.05]" /></div>
       <div id="main-content">
         <NavegaLanding />
         <ConteudoInstitucional />
