@@ -48,8 +48,10 @@ export function LandingEnhancements() {
         Pular para o conteúdo
       </a>
       <VLibrasWidget />
-      <div aria-hidden="true" className="pointer-events-none fixed inset-0 z-[50] flex items-center justify-center"><img src={logoAsset.url} alt="" className="w-[80vw] max-w-[640px] opacity-[0.05]" /></div>
-      <div id="main-content">
+      <div aria-hidden="true" className="pointer-events-none fixed inset-0 z-0 flex items-center justify-center overflow-hidden">
+        <img src={logoAsset.url} alt="" className="w-[62vw] max-w-[320px] opacity-[0.55]" />
+      </div>
+      <div id="main-content" className="relative z-10">
         <NavegaLanding />
         <ConteudoInstitucional />
       </div>

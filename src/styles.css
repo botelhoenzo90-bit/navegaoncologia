@@ -141,6 +141,12 @@
   main > section:first-child .container > div > div:first-child > :nth-child(5) { grid-row: 6; }
 }
 
+/* Marca d'água: a logo fica no fundo, atrás dos cards e das escritas.
+   Só os painéis claros das seções ficam levemente translúcidos; os cards
+   continuam opacos, então a marca aparece nos vazios, não dentro do texto. */
+#main-content section.bg-white { background-color: rgb(255 255 255 / 0.72); }
+#main-content section.bg-slate-50 { background-color: rgb(248 250 252 / 0.72); }
+
 /* VLibras: bolinha flutuante no canto inferior esquerdo, longe do WhatsApp */
 [vw] .active[vw-access-button],
 [vw-access-button].active {
