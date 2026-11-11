@@ -146,6 +146,8 @@
    continuam opacos, então a marca aparece nos vazios, não dentro do texto. */
 #main-content section.bg-white { background-color: rgb(255 255 255 / 0.72); }
 #main-content section.bg-slate-50 { background-color: rgb(248 250 252 / 0.72); }
+#main-content section.bg-slate-950 { background-color: rgb(2 6 23 / 0.9); }
+#main-content section.bg-primary { background-color: color-mix(in oklch, var(--primary) 90%, transparent); }
 
 /* VLibras: bolinha flutuante no canto inferior esquerdo, longe do WhatsApp */
 [vw] .active[vw-access-button],
