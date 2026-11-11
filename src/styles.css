@@ -141,17 +141,11 @@
   main > section:first-child .container > div > div:first-child > :nth-child(5) { grid-row: 6; }
 }
 
-/* Marca d'água: mesma intensidade em todas as seções. Seções claras e
-   rodapé ficam sem fundo próprio (usam o fundo da página); faixas escuras
-   ficam translúcidas para a marca continuar aparecendo. Cards seguem opacos. */
-#main-content section:not(.bg-slate-950):not(.bg-slate-900):not(.bg-primary),
-#main-content footer {
-  background-color: transparent !important;
-  background-image: none !important;
-}
-#main-content section.bg-slate-950 { background-color: rgb(2 6 23 / 0.8); }
-#main-content section.bg-slate-900 { background-color: rgb(15 23 42 / 0.8); }
-#main-content section.bg-primary { background-color: color-mix(in srgb, var(--primary) 80%, transparent); }
+/* Marca d'água: a logo fica no fundo, atrás dos cards e das escritas.
+   Só os painéis claros das seções ficam levemente translúcidos; os cards
+   continuam opacos, então a marca aparece nos vazios, não dentro do texto. */
+#main-content section.bg-white { background-color: rgb(255 255 255 / 0.72); }
+#main-content section.bg-slate-50 { background-color: rgb(248 250 252 / 0.72); }
 
 /* VLibras: bolinha flutuante no canto inferior esquerdo, longe do WhatsApp */
 [vw] .active[vw-access-button],
