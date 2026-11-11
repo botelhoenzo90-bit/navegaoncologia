@@ -141,24 +141,17 @@
   main > section:first-child .container > div > div:first-child > :nth-child(5) { grid-row: 6; }
 }
 
-/* Marca d'água: a logo fica no fundo, atrás de tudo, e deve aparecer em
-   qualquer parte do site. Por isso todos os painéis de seção ficam
-   levemente translúcidos — inclusive o degradê da abertura e as faixas
-   escuras. Os cards continuam opacos, então a marca nunca cruza o texto. */
-#main-content section.bg-white { background-color: rgb(255 255 255 / 0.7); }
-#main-content section.bg-slate-50 { background-color: rgb(248 250 252 / 0.7); }
-#main-content section.bg-slate-100 { background-color: rgb(241 245 249 / 0.7); }
-#main-content section.bg-slate-950 { background-color: color-mix(in srgb, var(--color-slate-950, #020617) 88%, transparent); }
-#main-content section.bg-slate-900 { background-color: color-mix(in srgb, var(--color-slate-900, #0f172a) 88%, transparent); }
-#main-content section.bg-primary { background-color: color-mix(in srgb, var(--primary, #6355d8) 88%, transparent); }
-#main-content section.bg-gradient-to-br {
-  background-image: linear-gradient(
-    to bottom right,
-    rgb(255 255 255 / 0.7),
-    rgb(248 250 252 / 0.7),
-    color-mix(in srgb, var(--primary, #6355d8) 6%, transparent)
-  );
+/* Marca d'água: mesma intensidade em todas as seções. Seções claras e
+   rodapé ficam sem fundo próprio (usam o fundo da página); faixas escuras
+   ficam translúcidas para a marca continuar aparecendo. Cards seguem opacos. */
+#main-content section:not(.bg-slate-950):not(.bg-slate-900):not(.bg-primary),
+#main-content footer {
+  background-color: transparent !important;
+  background-image: none !important;
 }
+#main-content section.bg-slate-950 { background-color: rgb(2 6 23 / 0.8); }
+#main-content section.bg-slate-900 { background-color: rgb(15 23 42 / 0.8); }
+#main-content section.bg-primary { background-color: color-mix(in srgb, var(--primary) 80%, transparent); }
 
 /* VLibras: bolinha flutuante no canto inferior esquerdo, longe do WhatsApp */
 [vw] .active[vw-access-button],
